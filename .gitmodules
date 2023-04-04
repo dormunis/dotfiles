@@ -1,6 +1,6 @@
-[submodule "tmux/plugins/tpm"]
+[submodule "tpm"]
 	path = tmux/plugins/tpm
 	url = git@github.com:tmux-plugins/tpm.git
-[submodule "zsh/plugins/zsh-autosuggestions"]
-	path = zsh/plugins/zsh-autosuggestions 
-	url = git@github.com:zdharma-zmirror/fast-syntax-highlighting.git 
+[submodule "fast-syntax-highlighting"]
+	path = zsh/plugins/fast-syntax-highlighting
+	url = git@github.com:zdharma-zmirror/fast-syntax-highlighting.git
