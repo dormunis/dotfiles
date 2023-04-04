@@ -5,8 +5,7 @@ This is a dotfiles repository, built to bootstrap any Mac workstation to fit my 
 ## Installation
 
 ```
-git clone --recursive git@github.com:dormunis/dotfiles.git
-./bootstrap.sh
+curl -L https://raw.githubusercontent.com/dormunis/dotfiles/main/bootstrap.sh | zsh 
 ```
 
 ## TODO
