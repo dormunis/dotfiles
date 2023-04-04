@@ -1,3 +1,4 @@
+#!/bin/zsh
 # setup ssh
 echo "setting up ssh"
 # TODO: find a way to inject my private key to ssh
