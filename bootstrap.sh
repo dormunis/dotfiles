@@ -38,6 +38,9 @@ defaults import com.googlecode.iterm2 $(dirname $0)/_bootstrap/giterm2.plist
 echo "setting up dotfiles symlinks"
 # TODO: copy dotfiles to this directory and symlink them
 mkdir -p ~/.config
+ln -s "$PWD/.gitconfig" ~/.config/.gitconfig
+ln -s "$PWD/zsh" ~/.config/zsh
+ln -s "$PWD/zsh/.zshrc" ~/.zshrc
 ln -s "$PWD/tmux" ~/.config/tmux
 ln -s "$PWD/nvim" ~/.config/nvim
 ln -s "$PWD/yabai" ~/.config/yabai
