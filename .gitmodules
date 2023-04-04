@@ -4,3 +4,12 @@
 [submodule "fast-syntax-highlighting"]
 	path = zsh/plugins/fast-syntax-highlighting
 	url = git@github.com:zdharma-zmirror/fast-syntax-highlighting.git
+[submodule "zsh-autosuggestions"]
+	path = zsh/plugins/zsh-autosuggestions
+	url = git@github.com:zsh-users/zsh-autosuggestions.git
+[submodule "zsh-completions"]
+	path = zsh/plugins/zsh-completions
+    url = git@github.com:zsh-users/zsh-completions.git
+[submodule "dracula"]
+	path = zsh/themes/dracula 
+    url = git@github.com:dracula/zsh.git

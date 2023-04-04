@@ -7,7 +7,7 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_FIND_NO_DUPS
 
 # theme
-source $ZSH/themes/zsh/dracula.zsh-theme
+source $ZSH/themes/dracula/dracula.zsh-theme
 
 # aliases
 source $ZSH/aliases/customized.plugin.zsh
