@@ -41,7 +41,7 @@ vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left>
 vim.keymap.set("n", "<leader>fx", "<cmd>!chmod +x %<CR>", { silent = true, desc = 'Set current find chmod +x' })
 
 -- remove highlights from search
-vim.keymap.set("n", "<leader>H", ":nohlsearch<CR>", { desc = 'Remove [H]ightlights' })
+vim.keymap.set("n", "C-L", ":nohlsearch<CR>", { desc = 'Remove Highlights' })
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })

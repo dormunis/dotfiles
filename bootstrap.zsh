@@ -6,8 +6,8 @@ chmod 400 ~/.ssh/id_rsa
 
 echo "setting up dev directroy in ~/dev and cloning dotfiles"
 mkdir -r ~/dev
-git clone git@github.com:dormunis/dotfiles.git ~/dev/dotfiles
-dotfilesdir=~/dev/dotfiles
+dotfilesdir=~/dev/private/dotfiles
+git clone git@github.com:dormunis/dotfiles.git $dotfilesdir
 
 # install homebrew
 # TODO: put .zprofile in dotfiles as well
@@ -32,7 +32,7 @@ python $dotfilesdir/_bootstrap/set-chrome-default-browser.py
 pget https://www.xtrafondos.com/wallpapers/superman-de-espaldas-7443.jpg -o ~/Pictures/superman-wallpaper.jpg
 osascript
 tell application "Finder"
-set desktop picture to POSIX file "~/Pictures/superman-wallpaper.jpg"
+set desktop picture to POSIX file "$HOME/Pictures/superman-wallpaper.jpg"
 end tell
 
 # chrome-cli login to my default user, and set chrome as default browser
@@ -45,10 +45,13 @@ defaults import com.googlecode.iterm2 $dotfilesdir/_bootstrap/giterm2.plist
 echo "setting up dotfiles symlinks"
 # TODO: copy dotfiles to this directory and symlink them
 mkdir -p ~/.config
-rn -s "$dotfilesdir/.gitconfig" ~/.config/.gitconfig
+mkdir -p ~/.local/bin
+for file in $dotfilesdir/bin/*; do ln -s "$file" ~/.local/bin/"$(basename "$file")"; done
+ln -s "$dotfilesdir/.gitconfig" ~/.config/.gitconfig
 ln -s "$dotfilesdir/zsh" ~/.config/zsh
 ln -s "$dotfilesdir/zsh/.zshrc" ~/.zshrc
 ln -s "$dotfilesdir/tmux" ~/.config/tmux
+ln -s "$dotfilesdir/tmux/.tmux.conf" ~/.tmux.conf
 ln -s "$dotfilesdir/nvim" ~/.config/nvim
 ln -s "$dotfilesdir/yabai" ~/.config/yabai
 ln -s "$dotfilesdir/skhd" ~/.config/skhd
