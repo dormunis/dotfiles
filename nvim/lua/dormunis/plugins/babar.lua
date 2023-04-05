@@ -1,3 +1,4 @@
+-- TODO: integrate tmux and possibly remove this
 return {
     'romgrk/barbar.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
@@ -9,8 +10,10 @@ return {
         local map = vim.api.nvim_set_keymap
         local opts = { noremap = true, silent = true }
 
-        map("n", "<leader>b[", "<cmd>BufferPrevious<CR>", opts)
-        map("n", "<leader>b]", "<cmd>BufferNext<CR>", opts)
+        vim.keymap.set("n", "<leader>b", function()
+        end, { desc = "Buffer actions" })
+        map("n", "<", "<cmd>BufferPrevious<CR>", opts)
+        map("n", ">", "<cmd>BufferNext<CR>", opts)
 
         map("n", "<leader>b1", "<cmd>BufferGoto 1<CR>", opts)
         map("n", "<leader>b2", "<cmd>BufferGoto 2<CR>", opts)
@@ -25,12 +28,7 @@ return {
         map("n", "<leader>bp", "<cmd>BufferPin<CR>", opts)
 
         map("n", "<leader>bx", "<cmd>BufferClose<CR>", opts)
-        map("n", "<leader>bxx", "<cmd>BufferCloseAllButCurrentOrPinned<CR>", opts)
-        map("n", "<leader>bxh", "<cmd>BufferCloseBuffersLeft<CR>", opts)
-        map("n", "<leader>bxl", "<cmd>BufferCloseBuffersRight<CR>", opts)
-
-        map("n", "<C-b>", "<cmd>BufferPick<CR>", opts)
-    end;
+        map("n", "<leader>bX", "<cmd>BufferCloseAllButCurrentOrPinned<CR>", opts)
+    end,
     version = '^1.0.0', -- optional: only update when a new 1.x version is released
 }
-
