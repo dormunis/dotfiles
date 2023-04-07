@@ -39,9 +39,6 @@ end tell
 echo "setting up obsidian"
 git clone git@github.com:dormunis/obsidian-vault.git ~/Documents/obsidian-vault
 
-# setting up different software that are not bound by dotfiles
-defaults import com.googlecode.iterm2 $dotfilesdir/_bootstrap/giterm2.plist
-
 echo "setting up dotfiles symlinks"
 # TODO: copy dotfiles to this directory and symlink them
 mkdir -p ~/.config
@@ -53,6 +50,7 @@ ln -s "$dotfilesdir/zsh/.zshrc" ~/.zshrc
 ln -s "$dotfilesdir/tmux" ~/.config/tmux
 ln -s "$dotfilesdir/tmux/.tmux.conf" ~/.tmux.conf
 ln -s "$dotfilesdir/nvim" ~/.config/nvim
+ln -s "$dotfilesdir/alacritty" ~/.config/alacritty
 ln -s "$dotfilesdir/yabai" ~/.config/yabai
 ln -s "$dotfilesdir/skhd" ~/.config/skhd
 

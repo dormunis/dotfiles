@@ -1,0 +1,45 @@
+window:
+  decorations: none
+  dynamic_padding: true
+  padding:
+    x: 10
+    y: 10
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+font:
+  bold:
+    family: Hack Nerd Font
+    style: Bold
+  bold_italic:
+    family: Hack Nerd Font
+    style: Bold Italic
+  italic:
+    family: Hack Nerd Font
+    style: Italic
+  normal:
+    family: Hack Nerd Font
+    style: Regular
+  size: 16
+draw_bold_text_with_bright_colors: true
+
+import:
+  - dracula.yml
+
+selection:
+  save_to_clipboard: false
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
+
+cursor:
+  vi_mode_style: Block
+
+live_config_reload: true
+
+shell:
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
+  program: /bin/zsh
