@@ -1,5 +1,6 @@
-# This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
 	name = Dor Munis
 	email = 5811812+dormunis@users.noreply.github.com
+
+[pull]
+	rebase = true
