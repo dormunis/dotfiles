@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/dev -mindepth 1 -maxdepth 5 -type d -name ".git" -exec dirname {} \; | fzf-tmux -p --reverse)
+    selected=$(find ~/dev -mindepth 1 -maxdepth 5 -type d -name ".git" -exec dirname {} \; | fzf-tmux --reverse)
 fi
 
 if [[ -z $selected ]]; then

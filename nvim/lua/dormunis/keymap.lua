@@ -1,3 +1,23 @@
+vim.keymap.set("n", "<leader>s", function()
+end, { desc = "Search within file" })
+
+vim.keymap.set("n", "<leader>c", function()
+end, { desc = "Code" })
+
+
+vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+    { desc = '[S]earch [R]eplace current word' })
+
+-- chmod +x to existing file
+vim.keymap.set("n", "<leader>fx", "<cmd>!chmod +x %<CR>", { silent = true, desc = 'Set current find chmod +x' })
+
+-- remove highlights from search
+vim.keymap.set("n", "<leader>sh", ":nohlsearch<CR>", { desc = 'Remove [S]earch [H]ighlights' })
+
+-- Remap for dealing with word wrap
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
 -- move selected line up and down and keep indentation
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -25,27 +45,4 @@ vim.keymap.set("v", "<leader>d", "\"_d")
 -- disable Q
 vim.keymap.set("n", "Q", "<nop>")
 
--- TODO: configure tmux
--- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-
--- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
--- vim.keymap.set("n", "<C-r>", "<cmd>cprev<CR>zz")
--- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
--- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
---
--- search replace current word
-vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-    { desc = 'Search replace current word' })
-
--- chmod +x to existing file
-vim.keymap.set("n", "<leader>fx", "<cmd>!chmod +x %<CR>", { silent = true, desc = 'Set current find chmod +x' })
-
--- remove highlights from search
-vim.keymap.set("n", "C-L", ":nohlsearch<CR>", { desc = 'Remove Highlights' })
-
--- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
-vim.keymap.set("", "<leader>c", function()
-end, { desc = "Code" })
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")

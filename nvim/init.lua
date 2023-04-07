@@ -1,5 +1,5 @@
-require("dormunis.keymap")
 require("dormunis.options")
+require("dormunis.keymap")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
