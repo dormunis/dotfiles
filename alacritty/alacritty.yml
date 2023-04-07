@@ -1,13 +1,8 @@
-window:
-  decorations: none
-  dynamic_padding: true
-  padding:
-    x: 10
-    y: 10
+cursor:
+  vi_mode_style:
+    shape: Block
 
-scrolling:
-  history: 10000
-  multiplier: 3
+draw_bold_text_with_bright_colors: true
 
 font:
   bold:
@@ -23,19 +18,47 @@ font:
     family: Hack Nerd Font
     style: Regular
   size: 16
-draw_bold_text_with_bright_colors: true
 
 import:
   - dracula.yml
 
+key_bindings:
+  - { chars: "\eb", key: Left, mods: Alt }
+  - { chars: "\ef", key: Right, mods: Alt }
+  - {
+      chars: "\eOH",
+      key: Left,
+      mode: AppCursor,
+      mods: Command
+    }
+  - {
+      chars: "\eOF",
+      key: Right,
+      mode: AppCursor,
+      mods: Command
+    }
+  - { chars: "\x15", key: Back, mods: Command }
+  - { chars: "\e", key: Back, mods: Alt }
+  - {
+      chars: "tmux split-window -h -c \"${pane_current_path}\"",
+      key: D,
+      mods: Command
+    }
+  - {
+      chars: "tmux split-window -v -c \"${pane_current_path}\"",
+      key: D,
+      mods: Command | Shift
+    }
+
+live_config_reload: true
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
 selection:
   save_to_clipboard: false
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
-
-cursor:
-  vi_mode_style: Block
-
-live_config_reload: true
 
 shell:
   args:
@@ -43,3 +66,10 @@ shell:
     - -c
     - "tmux attach || tmux"
   program: /bin/zsh
+
+window:
+  decorations: none
+  dynamic_padding: true
+  padding:
+    x: 10
+    y: 10
