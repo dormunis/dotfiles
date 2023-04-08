@@ -18,5 +18,5 @@ return {
         vim.keymap.set('n', '<leader>fw', function()
             builtin.grep_string({ search = vim.fn.expand('<cword>') })
         end, { desc = '[F]ind [W]ord - fuzzy search word under cursor' })
-    end
+    end,
 }
