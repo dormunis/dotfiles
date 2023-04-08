@@ -23,8 +23,10 @@ import:
   - dracula.yml
 
 key_bindings:
+  # Navigate entire words
   - { chars: "\eb", key: Left, mods: Alt }
-  - { chars: "\ef", key: Right, mods: Alt }
+  - { chars: "\ew", key: Right, mods: Alt }
+  # TODO: don't remember what this does - figure it out
   - {
       chars: "\eOH",
       key: Left,
@@ -37,18 +39,49 @@ key_bindings:
       mode: AppCursor,
       mods: Command
     }
+  # Delete entire row
   - { chars: "\x15", key: Back, mods: Command }
+  # Delete entire word
   - { chars: "\e", key: Back, mods: Alt }
-  - {
-      chars: "tmux split-window -h -c \"${pane_current_path}\"",
-      key: D,
-      mods: Command
-    }
-  - {
-      chars: "tmux split-window -v -c \"${pane_current_path}\"",
-      key: D,
-      mods: Command | Shift
-    }
+  # Rename the current tmux window
+  - { chars: "\x02,", key: Comma, mods: Command }
+  # Select a new tmux session for the attached client interactively
+  - { chars: "\x02s", key: P, mods: Command }
+  # Select window 1-9
+  - { chars: "\x021", key: Key1, mods: Command }
+  - { chars: "\x022", key: Key2, mods: Command }
+  - { chars: "\x023", key: Key3, mods: Command }
+  - { chars: "\x024", key: Key4, mods: Command }
+  - { chars: "\x025", key: Key5, mods: Command }
+  - { chars: "\x026", key: Key6, mods: Command }
+  - { chars: "\x027", key: Key7, mods: Command }
+  - { chars: "\x028", key: Key8, mods: Command }
+  - { chars: "\x029", key: Key9, mods: Command }
+  # Switch to last tmux session
+  - { chars: "\x02L", key: L, mods: Command }
+  - { chars: "\x02[", key: LBracket, mods: Command }
+  - { chars: "\x02]", key: RBracket, mods: Command }
+  # Change to the previous tmux window
+  - { chars: "\x02p", key: LBracket, mods: Command|Shift }
+  # Change to the next tmux window
+  - { chars: "\x02n", key: RBracket, mods: Command|Shift }
+  # Split the current pane into two, left and right
+  - { chars: "\x02_", key: D, mods: Command|Shift }
+  # Split the current pane into two, top and bottom.
+  - { chars: "\x02|", key: D, mods: Command }
+  # Type <escape>:w<enter> to save neovim
+  - { chars: "\e:w\n", key: S, mods: Command }
+  # Type <escape>:wa<enter> to save all neovim files in nvim window
+  - { chars: "\e:wa\n", key: S, mods: Command|Shift }
+  # Create a new tmux window
+  - { chars: "\x02c", key: T, mods: Command }
+  # Break the current tmux pane out of the tmux window
+  - { chars: "\x02!", key: T, mods: Command|Shift }
+  # Kill the current tmux pane (and window if last pane)
+  - { chars: "\x04", key: W, mods: Command }
+  # Toggle the zoom state of the current tmux pane
+  - { chars: "\x02z", key: Z, mods: Command }
+  - { chars: "\e[1;9D", key: Right, mods: Command|Shift }
 
 live_config_reload: true
 
@@ -70,6 +103,3 @@ shell:
 window:
   decorations: none
   dynamic_padding: true
-  padding:
-    x: 10
-    y: 10
