@@ -1,9 +1,19 @@
 #!/bin/zsh
 
+DEV_DIR="$HOME/dev"
+
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/dev -mindepth 1 -maxdepth 5 -type d -name ".git" -exec dirname {} \; | fzf-tmux --reverse -p)
+    selected=$(find ~/dev -mindepth 1 -maxdepth 5 -type d -name ".git" \
+        -exec dirname {} \; \
+        | perl -pe "s:^$HOME/dev/::" \
+        | fzf-tmux --reverse -p)
+    # catch escape key
+    if [[ $? -eq 130 ]]; then
+        exit 1
+    fi
+    selected=$DEV_DIR/$selected
 fi
 
 if [[ -z $selected ]]; then
@@ -29,4 +39,4 @@ if [[ -z $window_exists ]]; then
 fi
 
 tmux switch-client -t $session_name:$selected_name
-echo $session_name:$seleted_name
+# echo $session_name:$selected_name
