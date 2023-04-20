@@ -46,3 +46,6 @@ cask "todoist"
 cask "whatsapp"
 cask "zoom"
 cask "alacritty"
+
+# 3d printing
+brew install --cask superslicer
