@@ -12,8 +12,8 @@ return {
 
         vim.keymap.set("n", "<leader>b", function()
         end, { desc = "Buffer actions" })
-        map("n", "<", "<cmd>BufferPrevious<CR>", opts)
-        map("n", ">", "<cmd>BufferNext<CR>", opts)
+        map("n", "{", "<cmd>BufferPrevious<CR>", { silent = true })
+        map("n", "}", "<cmd>BufferNext<CR>", opts)
 
         map("n", "<leader>b1", "<cmd>BufferGoto 1<CR>", opts)
         map("n", "<leader>b2", "<cmd>BufferGoto 2<CR>", opts)
