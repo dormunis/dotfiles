@@ -7,9 +7,9 @@ from LaunchServices import LSSetDefaultRoleHandlerForContentType
 # see https://developer.apple.com/library/mac/#documentation/Carbon/Reference/LaunchServicesReference/Reference/reference.html#//apple_ref/c/tdef/LSRolesMask
 LSSetDefaultRoleHandlerForContentType("public.html",
                                       0x00000002,
-                                      "com.google.chrome")
+                                      "company.thebrowser.Browser")
 LSSetDefaultRoleHandlerForContentType("public.xhtml",
                                       0x00000002,
-                                      "com.google.chrome")
-LSSetDefaultHandlerForURLScheme("http", "com.google.com")
-LSSetDefaultHandlerForURLScheme("https", "com.google.com")
+                                      "company.thebrowser.Browser")
+LSSetDefaultHandlerForURLScheme("http", "company.thebrowser.Browser")
+LSSetDefaultHandlerForURLScheme("https", "company.thebrowser.Browser")
