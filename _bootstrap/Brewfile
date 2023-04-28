@@ -22,12 +22,10 @@ cask "docker"
 # neovim and vscode 
 brew "xz"
 brew "fd"
-brew "lazygit"
 brew "neovim"
 brew "tmux"
 brew "ripgrep"
 cask "font-hack-nerd-font"
-cask "visual-studio-code"
 cask "arc"
 
 # terminal & utilities
