@@ -35,8 +35,8 @@ fi
 
 window_exists=$(tmux list-windows -t "$session_name" -F '#{window_name}' | grep -Fx "$selected_name")
 if [[ -z $window_exists ]]; then
-    tmux new-window -t $session_name -c $selected -n $selected_name
+    next_index=$(tmux list-windows -t $session_name -F '#{window_index}' | awk 'BEGIN{max=-1}{if($1>max) max=$1}END{print max+1}')
+    tmux new-window -c $selected -n $selected_name -t $session_name:$next_index
 fi
 
 tmux switch-client -t $session_name:$selected_name
-# echo $session_name:$selected_name
