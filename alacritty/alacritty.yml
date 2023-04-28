@@ -24,8 +24,8 @@ import:
 
 key_bindings:
   # Navigate entire words
-  - { chars: "\eb", key: Left, mods: Alt }
-  - { chars: "\ew", key: Right, mods: Alt }
+  - { chars: "\eB", key: Left, mods: Alt }
+  - { chars: "\eF", key: Right, mods: Alt }
   # TODO: don't remember what this does - figure it out
   - {
       chars: "\eOH",
