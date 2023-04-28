@@ -42,6 +42,11 @@ vim.keymap.set("n", "<leader>Y", "\"+Y")
 vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
 
+-- B to go to the beginning of the line (start of the first word)
+vim.keymap.set("n", "B", "^")
+-- E to get to the end of the line
+vim.keymap.set("n", "E", "$")
+
 -- disable Q
 vim.keymap.set("n", "Q", "<nop>")
 
