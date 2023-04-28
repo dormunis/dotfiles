@@ -19,14 +19,14 @@ return {
                 local bufnr = vim.api.nvim_get_current_buf()
                 vim.keymap.set("n", "<leader>p", function()
                     vim.cmd.Git('push')
-                end, { buffer = bufnr, remap = false, desc = "[G]it [p]ush" })
+                end, { buffer = bufnr, remap = false, desc = "Git [p]ush" })
 
                 vim.keymap.set("n", "<leader>P", function()
                     vim.cmd.Git({ 'pull' })
-                end, { buffer = bufnr, remap = false, desc = "[G]it [P]ull" })
+                end, { buffer = bufnr, remap = false, desc = "Git [P]ull" })
 
                 vim.keymap.set("n", "<leader>t", ":Git push -u origin ",
-                    { buffer = bufnr, remap = false, desc = "[G]it push -u origin and [t]rack" });
+                    { buffer = bufnr, remap = false, desc = "Git push -u origin and [t]rack" });
             end,
         })
     end
