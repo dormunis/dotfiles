@@ -4,7 +4,6 @@ return {
         vim.keymap.set("n", "<leader>g", function()
         end, { desc = 'Git' })
         vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = '[G]it [S]tatus w/ Vim Fugitive' })
-        vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 
         local fugitive_augroup = vim.api.nvim_create_augroup("fugitive_augroup", {})
         local autocmd = vim.api.nvim_create_autocmd
