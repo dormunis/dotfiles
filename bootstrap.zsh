@@ -29,7 +29,7 @@ $dotfilesdir/_bootstrap/gmacos.zsh
 python $dotfilesdir/_bootstrap/set-chrome-default-browser.py
 
 # set wallpaper
-pget https://www.xtrafondos.com/wallpapers/superman-de-espaldas-7443.jpg -o ~/Pictures/superman-wallpaper.jpg
+mv $dotfilesdir/_bootstrap/superman-wallpaper.jpg ~/Pictures/superman-wallpaper.jpg
 osascript
 tell application "Finder"
 set desktop picture to POSIX file "$HOME/Pictures/superman-wallpaper.jpg"
