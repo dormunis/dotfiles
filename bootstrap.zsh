@@ -24,9 +24,9 @@ echo "installing all software"
 brew bundle --file $dotfilesdir/_bootstrap/Brewfile
 
 echo "setting up mac with default configurations"
-chmod +x $dotfilesdir/_bootstrap/gmacos.zsh
-$dotfilesdir/_bootstrap/gmacos.zsh
-python $dotfilesdir/_bootstrap/set-chrome-default-browser.py
+chmod +x $dotfilesdir/_bootstrap/macos.zsh
+$dotfilesdir/_bootstrap/macos.zsh
+python $dotfilesdir/_bootstrap/set-default-browser.py
 
 # set wallpaper
 mv $dotfilesdir/_bootstrap/superman-wallpaper.jpg ~/Pictures/superman-wallpaper.jpg
