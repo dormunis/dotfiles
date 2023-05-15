@@ -13,7 +13,6 @@ return {
                 "lua",
                 "go",
                 "vim",
-                "help",
                 "query",
                 "python",
                 "javascript",
@@ -34,6 +33,7 @@ return {
                 "sql",
                 "bash",
                 "yaml",
+                "markdown_inline"
             },
             sync_install = false,
             auto_install = true,
