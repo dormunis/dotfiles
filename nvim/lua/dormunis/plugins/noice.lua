@@ -2,6 +2,9 @@ return {
     "folke/noice.nvim",
     opts = {},
     config = function()
+        require("notify").setup({
+            background_colour = "#1e222a",
+        })
         require("noice").setup({
             popupmenu = {
                 backend = "cmp",
@@ -11,6 +14,11 @@ return {
                     ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
                     ["vim.lsp.util.stylize_markdown"] = true,
                     ["cmp.entry.get_documentation"] = true,
+                },
+                message = {
+                    enabled = true,
+                    view = "notify",
+                    opts = {},
                 }
             },
             notify = {

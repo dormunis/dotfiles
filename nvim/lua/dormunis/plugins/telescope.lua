@@ -10,7 +10,6 @@ return {
         end, { desc = 'File actions' })
         vim.keymap.set('n', '<leader>f?', require('telescope.builtin').oldfiles,
             { desc = '[?] Find recently opened files' })
-        vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = '[F]ind [B]uffers' })
         vim.keymap.set('n', '<leader>fc', builtin.current_buffer_fuzzy_find, { desc = '[F]ind in [C]urrent buffer' })
         vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles from project root' })
         vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = '[F]ind [G]rep on all files from project root' })
