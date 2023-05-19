@@ -1,7 +1,8 @@
 return {
     "nvim-tree/nvim-tree.lua",
     keys = {
-        { "<leader>e", ":NvimTreeFindFileToggle<CR>", desc = "Toggle NvimTree" },
+        -- { "<leader>e", ":NvimTreeFindFileToggle<CR>", desc = "Toggle NvimTree" },
+        { "<leader>e", function() require("nvim-tree.api").tree.toggle() end, desc = "Toggle NvimTree" },
     },
     config = function()
         vim.g.loaded_netrw = 1
