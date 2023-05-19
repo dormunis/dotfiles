@@ -16,7 +16,7 @@ brew "pipenv"
 brew "pyenv"
 brew "go"
 brew "node"
-brew "yarn"
+brew "pnpm"
 cask "docker"
 
 # neovim and vscode 
