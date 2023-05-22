@@ -1,4 +1,3 @@
--- TODO: integrate tmux and possibly remove this
 return {
     'romgrk/barbar.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
@@ -15,20 +14,20 @@ return {
         map("n", "{", "<cmd>BufferPrevious<CR>", { silent = true })
         map("n", "}", "<cmd>BufferNext<CR>", opts)
 
-        map("n", "<leader>b1", "<cmd>BufferGoto 1<CR>", opts)
-        map("n", "<leader>b2", "<cmd>BufferGoto 2<CR>", opts)
-        map("n", "<leader>b3", "<cmd>BufferGoto 3<CR>", opts)
-        map("n", "<leader>b4", "<cmd>BufferGoto 4<CR>", opts)
-        map("n", "<leader>b5", "<cmd>BufferGoto 5<CR>", opts)
-        map("n", "<leader>b6", "<cmd>BufferGoto 6<CR>", opts)
-        map("n", "<leader>b7", "<cmd>BufferGoto 7<CR>", opts)
-        map("n", "<leader>b8", "<cmd>BufferGoto 8<CR>", opts)
-        map("n", "<leader>b9", "<cmd>BufferGoto 9<CR>", opts)
+        map("n", "1b", "<cmd>BufferGoto 1<CR>", opts)
+        map("n", "2b", "<cmd>BufferGoto 2<CR>", opts)
+        map("n", "3b", "<cmd>BufferGoto 3<CR>", opts)
+        map("n", "4b", "<cmd>BufferGoto 4<CR>", opts)
+        map("n", "5b", "<cmd>BufferGoto 5<CR>", opts)
+        map("n", "6b", "<cmd>BufferGoto 6<CR>", opts)
+        map("n", "7b", "<cmd>BufferGoto 7<CR>", opts)
+        map("n", "8b", "<cmd>BufferGoto 8<CR>", opts)
+        map("n", "9b", "<cmd>BufferGoto 9<CR>", opts)
 
         map("n", "<leader>bp", "<cmd>BufferPin<CR>", opts)
 
         map("n", "<esc><esc>", "<cmd>BufferClose<CR>", opts)
-        map("n", "<leader>bx", "<cmd>BufferCloseAllButCurrentOrPinned<CR>", opts)
+        map("n", "<leader>bX", "<cmd>BufferCloseAllButCurrentOrPinned<CR>", opts)
     end,
     version = '^1.0.0', -- optional: only update when a new 1.x version is released
 }

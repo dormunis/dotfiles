@@ -15,22 +15,22 @@ return {
             desc = "[F]ile [Q]uick menu (using Harpoon)",
         },
         {
-            "<leader>f1",
+            "1f",
             function() require('harpoon.ui').nav_file(1) end,
             desc = "go to quick file #1"
         },
         {
-            "<leader>f2",
+            "2f",
             function() require('harpoon.ui').nav_file(2) end,
             desc = "go to quick file #2",
         },
         {
-            "<leader>f3",
+            "3f",
             function() require('harpoon.ui').nav_file(3) end,
             desc = "go to quick file #3"
         },
         {
-            "<leader>f4",
+            "4f",
             function() require('harpoon.ui').nav_file(4) end,
             desc = "go to quick file #4",
         },
