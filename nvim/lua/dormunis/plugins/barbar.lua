@@ -27,8 +27,8 @@ return {
 
         map("n", "<leader>bp", "<cmd>BufferPin<CR>", opts)
 
-        map("n", "<leader>bx", "<cmd>BufferClose<CR>", opts)
-        map("n", "<leader>bX", "<cmd>BufferCloseAllButCurrentOrPinned<CR>", opts)
+        map("n", "<esc><esc>", "<cmd>BufferClose<CR>", opts)
+        map("n", "<leader>bx", "<cmd>BufferCloseAllButCurrentOrPinned<CR>", opts)
     end,
     version = '^1.0.0', -- optional: only update when a new 1.x version is released
 }
