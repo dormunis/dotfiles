@@ -58,6 +58,10 @@ ln -s "$dotfilesdir/skhd" ~/.config/skhd
 echo "installing python 3.11"
 pyenv install 3.11
 pyenv global 3.11
+mkdir "$dotfilesdir/dap-virtualenvs"
+cd python -m venv debugpy "$dotfilesdir/dap-virtualenvs"
+$dotfilesdir/debugpy/bin/pip install debugpy
+ln -s "$dotfilesdir/dap-virtualenvs" ~/.config/dap-virtualenvs
 
 # install rust
 echo "installing rust latest version"
