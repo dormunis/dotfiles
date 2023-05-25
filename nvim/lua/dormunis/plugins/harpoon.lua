@@ -1,18 +1,28 @@
 return {
-    'ThePrimeagen/harpoon',
+    'dormunis/harpoon',
     dependencies = {
         'nvim-lua/plenary.nvim',
     },
     keys = {
         {
-            "<leader>fa",
+            "<C-a>",
             function() require('harpoon.mark').add_file() end,
             desc = "[F]ile [A]dd to quick access menu (using Harpoon)",
         },
         {
-            "<leader>fq",
+            "<C-q>",
             function() require('harpoon.ui').toggle_quick_menu() end,
             desc = "[F]ile [Q]uick menu (using Harpoon)",
+        },
+        {
+            "{",
+            function() require('harpoon.ui').nav_prev() end,
+            desc = "Navigate to previous harpoon item"
+        },
+        {
+            "{",
+            function() require('harpoon.ui').nav_next() end,
+            desc = "Navigate to next harpoon item"
         },
         {
             "1f",
