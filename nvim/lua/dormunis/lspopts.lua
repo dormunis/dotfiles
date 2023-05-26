@@ -3,7 +3,6 @@ local on_attach = function(_, bufnr)
         vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
     end
 
-    nmap('<leader>cr', vim.lsp.buf.rename, '[C]ode [R]efactor')
     nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
     nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
@@ -23,14 +22,10 @@ local on_attach = function(_, bufnr)
     end, 'Workspace')
     nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
     nmap('<leader>wd', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [D]elete Folder')
-    nmap('<leader>wl', function()
-        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, '[w]orkspace [l]ist folders')
+    nmap('<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
+        '[w]orkspace [l]ist folders')
 
-    nmap("<leader>cf", function()
-            vim.lsp.buf.format()
-        end,
-        '[C]ode [F]ormat file')
+    nmap("<leader>cf", function() vim.lsp.buf.format() end, '[C]ode [F]ormat file')
 end
 
 local servers = {

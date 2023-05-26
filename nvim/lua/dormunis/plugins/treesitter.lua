@@ -5,9 +5,26 @@ return {
     end,
     dependencies = {
         'nvim-treesitter/nvim-treesitter-textobjects',
+        'nvim-treesitter/nvim-treesitter-context',
+        'nvim-treesitter/nvim-treesitter-refactor',
     },
     config = function()
-        require 'nvim-treesitter.configs'.setup {
+        require('nvim-treesitter.configs').setup {
+            refactor = {
+                highlight_definitions = {
+                    enable = true,
+                    clear_on_cursor_move = true,
+                },
+                highlight_current_scope = {
+                    enable = true,
+                },
+                smart_rename = {
+                    enable = true,
+                    keymaps = {
+                        smart_rename = "<leader>cr",
+                    },
+                }
+            },
             ensure_installed = {
                 "c",
                 "lua",

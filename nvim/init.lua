@@ -15,5 +15,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup('dormunis.plugins')
-
 require("dormunis.lspopts")

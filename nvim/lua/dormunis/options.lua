@@ -39,6 +39,10 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
+-- disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
