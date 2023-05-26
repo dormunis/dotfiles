@@ -10,7 +10,7 @@ return {
             desc = "[F]ile [A]dd to quick access menu (using Harpoon)",
         },
         {
-            "<C-q>",
+            "<C-p>",
             function() require('harpoon.ui').toggle_quick_menu() end,
             desc = "[F]ile [Q]uick menu (using Harpoon)",
         },

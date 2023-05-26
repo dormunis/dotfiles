@@ -1,6 +1,3 @@
-vim.keymap.set('n', '<leader>t', function()
-end, { desc = 'Todo actions' })
-
 return {
     'folke/todo-comments.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },

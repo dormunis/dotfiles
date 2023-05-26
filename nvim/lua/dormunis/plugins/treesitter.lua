@@ -3,6 +3,7 @@ return {
     build = function()
         pcall(require('nvim-treesitter.install').update { with_sync = true })
     end,
+    event = "VeryLazy",
     dependencies = {
         'nvim-treesitter/nvim-treesitter-textobjects',
         'nvim-treesitter/nvim-treesitter-context',
@@ -14,9 +15,6 @@ return {
                 highlight_definitions = {
                     enable = true,
                     clear_on_cursor_move = true,
-                },
-                highlight_current_scope = {
-                    enable = true,
                 },
                 smart_rename = {
                     enable = true,
