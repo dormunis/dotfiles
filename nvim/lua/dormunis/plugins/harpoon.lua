@@ -20,7 +20,7 @@ return {
             desc = "Navigate to previous harpoon item"
         },
         {
-            "{",
+            "}",
             function() require('harpoon.ui').nav_next() end,
             desc = "Navigate to next harpoon item"
         },
