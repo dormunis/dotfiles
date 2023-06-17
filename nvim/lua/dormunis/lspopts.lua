@@ -18,11 +18,6 @@ local on_attach = function(_, bufnr)
     nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
     nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-    nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-    nmap('<leader>wd', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [D]elete Folder')
-    nmap('<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
-        '[w]orkspace [l]ist folders')
-
     nmap("<leader>cf", function() vim.lsp.buf.format() end, '[C]ode [F]ormat file')
 end
 
