@@ -6,7 +6,7 @@ local on_attach = function(_, bufnr)
     nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
     nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-    nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+    nmap('gr', require('telescope.builtin').lsp_references, '[G]oto Telescope [R]eferences')
     nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
     nmap('<leader>cD', vim.lsp.buf.type_definition, '[C]ode Type [D]efinition')
     nmap('<leader>cs', function()
