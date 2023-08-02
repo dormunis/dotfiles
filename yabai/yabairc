@@ -26,6 +26,8 @@ yabai -m config layout                      bsp             \
 # disable window apps
 yabai -m rule --add app="^Zoom.us$" manage=off
 yabai -m rule --add app="^Docker Desktop$" manage=off
+yabai -m rule --add app="^Alfred Preferences$" manage=off
+yabai -m rule --add title="^Todoist$" manage=off border=off sticky=on
 
 # disable system apps
 yabai -m rule --add app="^System Settings$" manage=off
@@ -35,5 +37,4 @@ yabai -m rule --add title='Preferences$' manage=off
 yabai -m rule --add title='^Archive Utility$' manage=off
 yabai -m rule --add app="^Disk Utility$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
-yabai -m rule --add app="^Alfred Preferences$" manage=off
-yabai -m rule --add app="^Keyboard Setup Assistant$" manage=off
+yabai -m rule --add app="^Keyboard Setup Assistant$" manage=off 
