@@ -12,11 +12,11 @@ alt + ctrl + cmd - b : yabai -m space --balance
 alt + ctrl +cmd - 0x2A : yabai -m window --toggle float # 0x2A == slash \
 
 # resize windows
-alt + ctrl + cmd - 0x18 :   yabai -m window --resize top_left:-50:-50; \
-                            yabai -m window --resize bottom_right:50:50
+alt + ctrl + cmd - 0x18 :   yabai -m window --resize top_left:-100:-100; \
+                            yabai -m window --resize bottom_right:100:100
 # 0x18 == equal sign =
-alt + ctrl + cmd - 0x1B :   yabai -m window --resize top_left:50:50; \
-                            yabai -m window --resize bottom_right:-50:-50
+alt + ctrl + cmd - 0x1B :   yabai -m window --resize top_left:100:100; \
+                            yabai -m window --resize bottom_right:-100:-100
 # 0x1B == minus sign -
 
 # move windows

@@ -1,5 +1,3 @@
-yabai -m signal --add event=window_created    action="zsh ~/.config/yabai/max-columns-layout.zsh"
-
 # configure
 yabai -m config layout                      bsp             \
                 auto_balance                off              \
