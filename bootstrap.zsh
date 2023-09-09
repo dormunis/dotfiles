@@ -63,6 +63,10 @@ cd python -m venv debugpy "$dotfilesdir/dap-virtualenvs"
 $dotfilesdir/debugpy/bin/pip install debugpy
 ln -s "$dotfilesdir/dap-virtualenvs" ~/.config/dap-virtualenvs
 
+# install bun
+echo "installing bun"
+curl -fsSL https://bun.sh/install | sh 
+
 # install rust
 echo "installing rust latest version"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
