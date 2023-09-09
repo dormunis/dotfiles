@@ -17,7 +17,7 @@ font:
   normal:
     family: Hack Nerd Font
     style: Regular
-  size: 16
+  size: 14
 
 import:
   - dracula.yml
