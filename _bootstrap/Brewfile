@@ -15,11 +15,12 @@ brew "terraform"
 brew "pipenv"
 brew "pyenv"
 brew "go"
+brew "vite"
 brew "node"
 brew "pnpm"
 cask "docker"
 
-# neovim and vscode 
+# neovim
 brew "xz"
 brew "fd"
 brew "neovim"
