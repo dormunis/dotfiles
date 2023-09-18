@@ -43,7 +43,7 @@ echo "setting up dotfiles symlinks"
 # TODO: copy dotfiles to this directory and symlink them
 mkdir -p ~/.config
 mkdir -p ~/.local/bin
-for file in $dotfilesdir/bin/*; do ln -s "$file" ~/.local/bin/"$(basename "$file")"; done
+for file in $dotfilesdir/bin/*; do ln -s "$file" ~/.local/bin/"$(basename "$file" | sed 's/\..*//')"; done
 ln -s "$dotfilesdir/.gitconfig" ~/.config/.gitconfig
 ln -s "$dotfilesdir/zsh" ~/.config/zsh
 ln -s "$dotfilesdir/zsh/.zshrc" ~/.zshrc
