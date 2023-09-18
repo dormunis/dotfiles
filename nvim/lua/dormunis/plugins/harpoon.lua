@@ -44,5 +44,10 @@ return {
             function() require('harpoon.ui').nav_file(4) end,
             desc = "go to quick file #4",
         },
+        {
+            "5f",
+            function() require('harpoon.ui').nav_file(5) end,
+            desc = "go to quick file #5",
+        },
     },
 }

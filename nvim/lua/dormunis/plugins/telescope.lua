@@ -6,6 +6,11 @@ return {
         'nvim-lua/plenary.nvim',
     },
     config = function()
+        require('telescope').setup {
+            defaults = {
+                file_ignore_patterns = { 'node_modules', 'vendor' },
+            }
+        }
         local builtin = require('telescope.builtin')
 
         -- project navigation
