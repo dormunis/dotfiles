@@ -34,3 +34,10 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 source $ZSH/aliases/customized.plugin.zsh
 source $ZSH/aliases/kubectl.plugin.zsh
 bindkey -s '^f' "tmux-sessionizer\n"
+
+# pnpm
+export PNPM_HOME="/Users/dormunis/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
