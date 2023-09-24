@@ -16,12 +16,6 @@ return {
                     enable = true,
                     clear_on_cursor_move = true,
                 },
-                -- smart_rename = {
-                --     enable = true,
-                --     keymaps = {
-                --         smart_rename = "<leader>cr",
-                --     },
-                -- }
             },
             ensure_installed = {
                 "c",

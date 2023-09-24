@@ -1,3 +1,7 @@
+local nmap = function(key, fn, desc)
+    vim.keymap.set('n', key, fn, { desc = desc })
+end
+
 return {
     'mfussenegger/nvim-dap',
     dependencies = {
@@ -8,19 +12,17 @@ return {
     config = function()
         local dap = require("dap")
         -- keybindings
-        vim.keymap.set('n', '<F1>', function() dap.continue() end, { desc = "Debug: continue" })
-        vim.keymap.set('n', '<F2>', function() dap.step_over() end, { desc = "Debug: step over" })
-        vim.keymap.set('n', '<F3>', function() dap.step_into() end, { desc = "Debug: step into" })
-        vim.keymap.set('n', '<F4>', function() dap.step_out() end, { desc = "Debug: step out" })
-        vim.keymap.set('n', '<C-t>', function() dap.toggle_breakpoint() end, { desc = "Debug: toggle breakpoint" })
-        vim.keymap.set('n', '<leader>dc',
+        nmap('<leader>dr', function() dap.continue() end, { desc = "Debug: continue" })
+        nmap('<leader>dso', function() dap.step_over() end, { desc = "Debug: step over" })
+        nmap('<leader>dsi', function() dap.step_into() end, { desc = "Debug: step into" })
+        nmap('<leader>dsb', function() dap.step_out() end, { desc = "Debug: step out/back" })
+        nmap('<leader>db', function() dap.toggle_breakpoint() end, { desc = "Debug: toggle breakpoint" })
+        nmap('<leader>dc',
             function() dap.set_breakpoint(vim.fn.input('Breakpoint point message: ')) end,
             { desc = "Debug: conditional breakpoint" })
-        vim.keymap.set('n', '<leader>dl',
+        nmap('<leader>dl',
             function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end,
             { desc = "Debug: log point" })
-        vim.keymap.set('n', '<leader>do', function() dap.repl.open() end, { desc = "Debug: open REPL" })
-        vim.keymap.set('n', '<leader>dr', function() dap.run_last() end, { desc = "Debug: run last" })
 
 
         local dapui = require("dapui")
@@ -40,7 +42,7 @@ return {
         python.setup('~/.config/dap-virtualenvs/debugpy/bin/python')
 
         -- language keybindings
-        vim.keymap.set('n', '<leader>df', function()
+        nmap('<leader>df', function()
             local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
             if filetype == 'python' then
                 python.test_method()
@@ -48,7 +50,7 @@ return {
         end, { desc = "Debug: this test function" }
         )
 
-        vim.keymap.set('n', '<leader>dc', function()
+        nmap('<leader>dc', function()
             local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
             if filetype == 'python' then
                 python.test_class()
