@@ -1,3 +1,8 @@
+vim.keymap.set('n', '<leader>xx', vim.diagnostic.open_float, { desc = "Open diagnostics for current line" })
+vim.keymap.set('n', '<leader>xl', vim.diagnostic.setloclist, { desc = "Open location list for diagnostics" })
+vim.keymap.set('n', 'T', vim.diagnostic.goto_prev)
+vim.keymap.set('n', 't', vim.diagnostic.goto_next)
+
 local on_attach = function(_, bufnr)
     local nmap = function(keys, func, desc)
         vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
