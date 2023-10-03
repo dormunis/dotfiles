@@ -9,14 +9,13 @@ local on_attach = function(_, bufnr)
     end
 
     nmap('<leader>r', vim.lsp.buf.rename, '[R]ename')
+    nmap('<leader>f', function() vim.lsp.buf.format() end, '[F]ormat file')
     nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
     nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
     nmap('gr', require('telescope.builtin').lsp_references, '[G]oto Telescope [R]eferences')
     nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
     nmap('<leader>cD', vim.lsp.buf.type_definition, '[C]ode Type [D]efinition')
-    nmap('<leader>cs', function()
-    end, '[C]ode [S]ymbols')
     nmap('<leader>csd', require('telescope.builtin').lsp_document_symbols, '[C]ode [S]ymbols: [D]ocument')
     nmap('<leader>csw', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[C]ode [S]ymbols: [W]orkspace')
 
@@ -24,7 +23,6 @@ local on_attach = function(_, bufnr)
     nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
     nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-    nmap("<leader>cf", function() vim.lsp.buf.format() end, '[C]ode [F]ormat file')
 end
 
 local servers = {
@@ -74,6 +72,7 @@ local luasnip = require 'luasnip'
 luasnip.config.setup {}
 require("luasnip.loaders.from_vscode").lazy_load()
 
+---@diagnostic disable-next-line: missing-fields
 cmp.setup {
     snippet = {
         expand = function(args)
