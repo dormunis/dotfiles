@@ -5,14 +5,14 @@ return {
     },
     keys = {
         {
-            "<C-a>",
+            "<leader>ha",
             function() require('harpoon.mark').add_file() end,
-            desc = "[F]ile [A]dd to quick access menu (using Harpoon)",
+            desc = "Add file to quick access menu",
         },
         {
-            "<C-p>",
+            "<leader>hh",
             function() require('harpoon.ui').toggle_quick_menu() end,
-            desc = "[F]ile [Q]uick menu (using Harpoon)",
+            desc = "File quick menu",
         },
         {
             "{",
