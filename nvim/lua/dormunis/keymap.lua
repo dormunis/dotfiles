@@ -1,5 +1,5 @@
 -- open lazy
-vim.keymap.set("n", "<leader>l", function() require('lazy').home() end, { desc = "Open Lazy" })
+vim.keymap.set("n", "<leader>sl", function() require('lazy').home() end, { desc = "Open Lazy" })
 
 -- search operations
 vim.keymap.set("n", "<C-g>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],

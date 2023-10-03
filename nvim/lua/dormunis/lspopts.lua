@@ -48,7 +48,9 @@ require('neodev').setup()
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-require('mason').setup()
+local mason = require('mason').setup()
+
+vim.keymap.set('n', '<leader>sm', ':Mason<CR>', { desc = "[S]etup [M]ason" })
 
 local mason_lspconfig = require 'mason-lspconfig'
 
