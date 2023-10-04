@@ -14,5 +14,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.keymap.set("n", "<leader>sl", function() require('lazy').home() end, { desc = "Open Lazy" })
+
 require("lazy").setup('dormunis.plugins')
 require("dormunis.lspopts")
