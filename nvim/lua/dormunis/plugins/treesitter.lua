@@ -10,15 +10,6 @@ return {
     config = function()
         ---@diagnostic disable-next-line: missing-fields
         require('nvim-treesitter.configs').setup {
-            incremental_selection = {
-                enable = true,
-                keymaps = {
-                    init_selection = '<CR>',
-                    scope_incremental = '<CR>',
-                    node_incremental = '<TAB>',
-                    node_decremental = '<S-TAB>',
-                },
-            },
             refactor = {
                 highlight_definitions = {
                     enable = true,
@@ -55,7 +46,15 @@ return {
             sync_install = false,
             auto_install = true,
             indent = { enable = true },
-            highlight = { enable = true },
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = '<TAB>',
+                    node_incremental = '<TAB>',
+                    node_decremental = '<S-TAB>',
+                    scope_incremental = '<CR>',
+                },
+            }, highlight = { enable = true },
             textobjects = {
                 select = {
                     enable = true,
