@@ -4,7 +4,7 @@ return {
     config = function()
         vim.keymap.set("n", "<leader>gs", function()
             if vim.bo.ft ~= "fugitive" then
-                vim.cmd('Git')
+                vim.cmd('vertical Git')
             else
                 vim.api.nvim_buf_delete(vim.api.nvim_get_current_buf(), { force = true })
             end

@@ -47,6 +47,10 @@ vim.opt.shortmess:append({ I = true })
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- split behavior
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
