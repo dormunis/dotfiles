@@ -1,16 +1,24 @@
 return {
     'nvim-treesitter/nvim-treesitter',
-    build = function()
-        pcall(require('nvim-treesitter.install').update { with_sync = true })
-    end,
-    event = "VeryLazy",
+    build = ":TSUpdate",
+    event = { "BufRead", "BufNewFile" },
     dependencies = {
         'nvim-treesitter/nvim-treesitter-textobjects',
         'nvim-treesitter/nvim-treesitter-context',
         'nvim-treesitter/nvim-treesitter-refactor',
     },
     config = function()
+        ---@diagnostic disable-next-line: missing-fields
         require('nvim-treesitter.configs').setup {
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = '<CR>',
+                    scope_incremental = '<CR>',
+                    node_incremental = '<TAB>',
+                    node_decremental = '<S-TAB>',
+                },
+            },
             refactor = {
                 highlight_definitions = {
                     enable = true,
@@ -53,16 +61,19 @@ return {
                     enable = true,
                     lookahead = true,
                     keymaps = {
-                        ['aa'] = '@parameter.outer',
-                        ['ia'] = '@parameter.inner',
-                        ['af'] = '@function.outer',
-                        ['if'] = '@function.inner',
-                        ['ac'] = '@class.outer',
-                        ['ic'] = '@class.inner',
-                        ['ai'] = '@conditional.outer',
-                        ['ii'] = '@conditional.inner',
-                        ['al'] = '@loop.outer',
-                        ['il'] = '@loop.inner',
+                        ['aa'] = { query = '@parameter.outer', desc = 'Select around parameter' },
+                        ['ia'] = { query = '@parameter.inner', desc = 'Select inside parameter' },
+                        ['af'] = { query = '@function.outer', desc = 'Select around function' },
+                        ['if'] = { query = '@function.inner', desc = 'Select inside function' },
+                        ['ac'] = { query = '@class.outer', desc = 'Select around class' },
+                        ['ic'] = { query = '@class.inner', desc = 'Select inside class' },
+                        ['ai'] = { query = '@conditional.outer', desc = 'Select around conditional' },
+                        ['ii'] = { query = '@conditional.inner', desc = 'Select inside conditional' },
+                        ['al'] = { query = '@loop.outer', desc = 'Select around loop' },
+                        ['il'] = { query = '@loop.inner', desc = 'Select inside loop' },
+                        ['a='] = { query = '@assignment.outer', desc = 'Select entire assignment' },
+                        ['i='] = { query = '@assignment.inner', desc = 'Select assignment value' },
+                        ['v='] = { query = '@assignment.lhs', desc = 'Select assignment variable' },
                     },
                     move = {
                         enable = true,

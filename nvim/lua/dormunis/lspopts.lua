@@ -12,6 +12,7 @@ local on_attach = function(_, bufnr)
     nmap('<leader>f', function() vim.lsp.buf.format() end, '[F]ormat file')
     nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
+    nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
     nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
     nmap('gr', require('telescope.builtin').lsp_references, '[G]oto Telescope [R]eferences')
     nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
@@ -21,8 +22,6 @@ local on_attach = function(_, bufnr)
 
     nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
     nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
-
-    nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 end
 
 local servers = {
@@ -48,7 +47,7 @@ require('neodev').setup()
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-local mason = require('mason').setup()
+require('mason').setup()
 
 vim.keymap.set('n', '<leader>sm', ':Mason<CR>', { desc = "[S]etup [M]ason" })
 
