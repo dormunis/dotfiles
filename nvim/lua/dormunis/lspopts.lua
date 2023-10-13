@@ -42,6 +42,17 @@ local servers = {
     },
 }
 
+-- tfvars bugfix for terraformls
+vim.api.nvim_create_autocmd('BufReadPost', {
+    pattern = "*.tfvars",
+    callback = function()
+        local bufnr = vim.api.nvim_get_current_buf()
+        if vim.bo.filetype == "terraform-vars" then
+            vim.api.nvim_buf_set_option(bufnr, 'filetype', 'terraform')
+        end
+    end,
+})
+
 require('neodev').setup()
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
