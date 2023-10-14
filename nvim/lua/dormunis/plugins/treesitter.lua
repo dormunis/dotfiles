@@ -27,6 +27,7 @@ return {
                 "typescript",
                 "rust",
                 "terraform",
+                "hcl",
                 "arduino",
                 "cpp",
                 "css",

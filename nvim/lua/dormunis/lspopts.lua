@@ -28,7 +28,9 @@ local servers = {
     clangd        = {},
     gopls         = {},
     pyright       = {},
-    terraformls   = {},
+    terraformls   = {
+        cmd = { 'terraform-ls', 'serve' },
+    },
     tsserver      = {},
     rust_analyzer = {},
     html          = {},
@@ -42,14 +44,12 @@ local servers = {
     },
 }
 
--- tfvars bugfix for terraformls
+-- tfvars bugfix for terraform-ls. This is a temporary fix for neovim 0.9.0
 vim.api.nvim_create_autocmd('BufReadPost', {
-    pattern = "*.tfvars",
+    pattern = "*.tfvars,*.tf",
     callback = function()
         local bufnr = vim.api.nvim_get_current_buf()
-        if vim.bo.filetype == "terraform-vars" then
-            vim.api.nvim_buf_set_option(bufnr, 'filetype', 'terraform')
-        end
+        vim.api.nvim_buf_set_option(bufnr, 'filetype', 'terraform')
     end,
 })
 
@@ -57,6 +57,7 @@ require('neodev').setup()
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 require('mason').setup()
 
