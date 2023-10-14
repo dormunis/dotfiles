@@ -31,3 +31,6 @@ vim.keymap.set("n", "Q", "<nop>")
 
 -- new sessionizer
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+
+-- copy selected text in visual mode to clip board
+vim.keymap.set("v", "<leader>y", [["+y]])
