@@ -36,6 +36,7 @@ local servers = {
     html          = {},
     sqlls         = {},
     helm_ls       = {},
+    ruff_lsp      = {},
     lua_ls        = {
         Lua = {
             workspace = { checkThirdParty = false },
