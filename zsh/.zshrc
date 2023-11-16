@@ -22,10 +22,15 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+# golang
+export PATH=$PATH:$(go env GOPATH)/bin
+#
+# pnpm
+export PNPM_HOME="/Users/dormunis/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
 # tmux
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -34,13 +39,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 source $ZSH/aliases/customized.plugin.zsh
 source $ZSH/aliases/kubectl.plugin.zsh
 bindkey -s '^f' "tmux-sessionizer\n"
-
-# pnpm
-export PNPM_HOME="/Users/dormunis/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/dormunis/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dormunis/Downloads/google-cloud-sdk/path.zsh.inc'; fi
