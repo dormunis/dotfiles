@@ -1,5 +1,5 @@
 -- search operations
-vim.keymap.set("n", "<C-s>", ":nohlsearch<CR>", { desc = 'Remove search highlights' })
+vim.keymap.set("n", "<C-s>", ":nohlsearch | let @/ = ''<CR>", { desc = 'Remove search highlights' })
 
 -- chmod +x to existing file
 vim.keymap.set("n", "<leader>fx", "<cmd>!chmod +x %<CR>", { silent = true, desc = 'Set current find chmod +x' })
@@ -24,6 +24,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- paste without yanking
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
 -- disable Q
