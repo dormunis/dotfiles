@@ -49,6 +49,7 @@ cask "whatsapp"
 cask "zoom"
 cask "alacritty"
 cask "discord"
+cask "google-drive"
 
 # 3d printing
 brew install --cask superslicer
