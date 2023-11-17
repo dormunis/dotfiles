@@ -25,5 +25,6 @@ return {
         vim.keymap.set("n", "<leader>gcm", function()
             popup('Git commit')
         end, { desc = 'Git commit' })
+        vim.keymap.set("n", "<leader>gd", function() vim.cmd('Gvdiffsplit') end, { desc = 'Git diff' })
     end
 }
