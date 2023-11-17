@@ -16,6 +16,8 @@ return {
         vim.keymap.set('n', '<leader>fa', builtin.find_files, { desc = 'Find all files from project root' })
         vim.keymap.set('n', '<Tab><Tab>', builtin.git_files, { desc = 'Find files in git repo' })
         vim.keymap.set('n', '<leader>ff', builtin.git_files, { desc = 'Find files in git repo' })
+        vim.keymap.set('n', '<leader>gl', builtin.git_commits, { desc = 'Git log (telescope)' })
+        vim.keymap.set('n', '<leader>gL', builtin.git_bcommits, { desc = 'Git log for current buffer (telescope)' })
         vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find currently running buffers' })
         vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Find recently opened files' })
         vim.keymap.set('n', '<leader>fc', builtin.current_buffer_fuzzy_find, { desc = 'Find in Current buffer' })
