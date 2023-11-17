@@ -9,5 +9,6 @@ curl -L https://raw.githubusercontent.com/dormunis/dotfiles/main/bootstrap.zsh |
 ```
 
 ## TODO
-1. find a way to securly get my ssh key in order to clone stuff from GitHub
-2. login to chrome as my user automatically
+- [ ] find a way to securly get my ssh key in order to clone stuff from GitHub
+- [ ] login to chrome as my user automatically
+- [ ] fugitive - bind <leader>< and <leader>> to accept left or right

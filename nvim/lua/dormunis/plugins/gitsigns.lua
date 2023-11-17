@@ -45,7 +45,6 @@ return {
                 map('n', '<leader>gB', function() gs.blame_line {} end,
                     { desc = "Git: full git blame on line" })
                 map('n', '<leader>gb', gs.toggle_current_line_blame, { desc = "Git: toggle blame on line" })
-                map('n', '<leader>gd', gs.diffthis, { desc = "Git: diff" })
 
                 -- Text objects
                 map({ 'o', 'x' }, 'ih', ':<C-U>Gisigns select_hunk<CR>')
