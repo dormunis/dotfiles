@@ -18,6 +18,7 @@ brew "go"
 brew "vite"
 brew "node"
 brew "pnpm"
+brew "delve"
 cask "docker"
 
 # neovim

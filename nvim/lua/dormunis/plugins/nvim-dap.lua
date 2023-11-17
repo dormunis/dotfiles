@@ -1,11 +1,12 @@
 local nmap = function(key, fn, desc)
-    vim.keymap.set('n', key, fn, { desc = desc })
+    vim.keymap.set('n', key, fn, desc)
 end
 
 return {
     'mfussenegger/nvim-dap',
     dependencies = {
         "mfussenegger/nvim-dap-python",
+        "leoluz/nvim-dap-go",
         "rcarriga/nvim-dap-ui",
         "theHamsta/nvim-dap-virtual-text",
     },
@@ -36,18 +37,28 @@ return {
         require("nvim-dap-virtual-text").setup({})
 
         -- language plugins
-
-        -- python
         local python = require('dap-python')
         python.setup('~/.config/dap-virtualenvs/debugpy/bin/python')
+        local delve = require('dap-go')
+        delve.setup()
 
-        -- language keybindings
-        nmap('<leader>df', function()
+        -- -- language keybindings
+        nmap('<leader>dsl', function()
+            local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
+            if filetype == 'python' then
+                python.debug_selection()
+            end
+        end, { desc = "Debug: selection" }
+        )
+
+        nmap('<leader>dt', function()
             local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
             if filetype == 'python' then
                 python.test_method()
+            elseif filetype == 'go' then
+                delve.debug_test()
             end
-        end, { desc = "Debug: this test function" }
+        end, { desc = "Debug: function" }
         )
 
         nmap('<leader>dc', function()
@@ -55,7 +66,7 @@ return {
             if filetype == 'python' then
                 python.test_class()
             end
-        end, { desc = "Debug: this test class" }
+        end, { desc = "Debug: class" }
         )
     end
 }
