@@ -28,13 +28,17 @@ return {
                 -- Actions
                 map('n', '<leader>ga', gs.stage_hunk, { desc = "Git: Stage hunk" })
                 map('n', '<leader>gr', gs.reset_hunk, { desc = "Git: Reset hunk" })
-                map('v', '<leader>ga',
+                map('v', '<leader>gA',
                     function() gs.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end,
                     { desc = "Git: Reset hunk" })
                 map('v', '<leader>gr',
                     function() gs.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end,
                     { desc = "Git: Reset hunk" })
-                map('n', '<leader>gA', gs.stage_buffer, { desc = "Git: Stage buffer" })
+                map('n', '<leader>ga', function()
+                    gs.stage_buffer()
+                    local filepath = vim.api.nvim_buf_get_name(bufnr)
+                    vim.notify('Git added: ' .. filepath)
+                end, { desc = "Git: Stage buffer" })
                 map('n', '<leader>gu', gs.undo_stage_hunk, { desc = "Git: Undo stage" })
                 map('n', '<leader>gR', gs.reset_buffer, { desc = "Git: Reset buffer" })
                 map('n', '<leader>gp', gs.preview_hunk, { desc = "Git: Preview hunk" })
@@ -42,6 +46,9 @@ return {
                     { desc = "Git: full git blame on line" })
                 map('n', '<leader>gb', gs.toggle_current_line_blame, { desc = "Git: toggle blame on line" })
                 map('n', '<leader>gd', gs.diffthis, { desc = "Git: diff" })
+
+                -- Text objects
+                map({ 'o', 'x' }, 'ih', ':<C-U>Gisigns select_hunk<CR>')
             end
         }
     end,
