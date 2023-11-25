@@ -7,6 +7,7 @@ return {
     config = function()
         local g = vim.g
         g["test#strategy"] = "neovim"
+        g["test#python#pytest#options"] = "-s --disable-warnings"
     end,
     keys = {
         {

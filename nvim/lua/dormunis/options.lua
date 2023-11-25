@@ -26,6 +26,10 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
+-- :e to create a file in the current directory
+-- TODO: make this work for only :e
+-- vim.opt.autochdir = true
+
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
