@@ -69,10 +69,6 @@ key_bindings:
   - { chars: "\x02_", key: D, mods: Command|Shift }
   # Split the current pane into two, top and bottom.
   - { chars: "\x02|", key: D, mods: Command }
-  # Type <escape>:w<enter> to save neovim
-  - { chars: "\e:w\n", key: S, mods: Command }
-  # Type <escape>:wa<enter> to save all neovim files in nvim window
-  - { chars: "\e:wa\n", key: S, mods: Command|Shift }
   # Create a new tmux window
   - { chars: "\x02c", key: T, mods: Command }
   # Break the current tmux pane out of the tmux window
@@ -82,11 +78,11 @@ key_bindings:
   # Toggle the zoom state of the current tmux pane
   - { chars: "\x02z", key: Z, mods: Command }
   - { chars: "\e[1;9D", key: Right, mods: Command|Shift }
-  # Meta key for tmux
-  - { chars: "\ej", key: J, mods: Alt }
-  - { chars: "\ek", key: K, mods: Alt }
-  - { chars: "\eh", key: H, mods: Alt }
-  - { chars: "\el", key: L, mods: Alt }
+  # Resize panes
+  - { chars: "\x02H", key: H, mods: Command|Shift}
+  - { chars: "\x02J", key: J, mods: Command|Shift}
+  - { chars: "\x02K", key: K, mods: Command|Shift}
+  - { chars: "\x02L", key: L, mods: Command|Shift}
 
 live_config_reload: true
 
