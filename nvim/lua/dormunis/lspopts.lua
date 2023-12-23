@@ -27,7 +27,14 @@ end
 local servers = {
     clangd        = {},
     gopls         = {},
-    pyright       = {},
+    mypy          = {},
+    pyright       = {
+        python = {
+            analysis = {
+                typeCheckingMode = "off",
+            },
+        },
+    },
     terraformls   = {
         cmd = { 'terraform-ls', 'serve' },
     },
