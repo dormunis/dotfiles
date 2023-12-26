@@ -27,7 +27,6 @@ end
 local servers = {
     clangd        = {},
     gopls         = {},
-    mypy          = {},
     pyright       = {
         python = {
             analysis = {
