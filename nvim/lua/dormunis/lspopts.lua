@@ -25,25 +25,26 @@ local on_attach = function(_, bufnr)
 end
 
 local servers = {
-    clangd        = {},
-    gopls         = {},
-    pyright       = {
+    clangd           = {},
+    gopls            = {},
+    pyright          = {
         python = {
             analysis = {
                 typeCheckingMode = "off",
             },
         },
     },
-    terraformls   = {
+    terraformls      = {
         cmd = { 'terraform-ls', 'serve' },
     },
-    tsserver      = {},
-    rust_analyzer = {},
-    html          = {},
-    sqlls         = {},
-    helm_ls       = {},
-    ruff_lsp      = {},
-    lua_ls        = {
+    tsserver         = {},
+    rust_analyzer    = {},
+    html             = {},
+    sqlls            = {},
+    helm_ls          = {},
+    golangci_lint_ls = {},
+    ruff_lsp         = {},
+    lua_ls           = {
         Lua = {
             workspace = { checkThirdParty = false },
             telemetry = { enable = false },
