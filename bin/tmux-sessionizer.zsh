@@ -5,10 +5,9 @@ DEV_DIR="$HOME/dev"
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/dev -mindepth 1 -maxdepth 5 -type d -name ".git" \
-        -exec dirname {} \; \
-        | perl -pe "s:^$HOME/dev/::" \
-        | fzf-tmux --reverse -p)
+    selected=$(find ~/dev -mindepth 1 -maxdepth 3 -type d -name ".git" | 
+        sed -e 's:/\.git$::' -e "s:^$HOME/dev/::" | fzf-tmux)
+
     # catch escape key
     if [[ $? -eq 130 ]]; then
         exit 1
@@ -20,23 +19,16 @@ if [[ -z $selected ]]; then
     exit 0
 fi
 
-session_name=$(basename "$(dirname "$selected")")
-selected_name=$(basename "$selected" | tr . _)
+session_name=$(basename "$selected")
 
 tmux_running=$(pgrep tmux)
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $session_name -c $selected -n $selected_name
+    tmux new-session -s $session_name -c $selected 
     exit 0
 fi
 
 if ! tmux has-session -t=$session_name 2> /dev/null; then
-    tmux new-session -ds $session_name -c $selected -n $selected_name
+    tmux new-session -ds $session_name -c $selected
 fi
 
-window_exists=$(tmux list-windows -t "$session_name" -F '#{window_name}' | grep -Fx "$selected_name")
-if [[ -z $window_exists ]]; then
-    next_index=$(tmux list-windows -t $session_name -F '#{window_index}' | awk 'BEGIN{max=-1}{if($1>max) max=$1}END{print max+1}')
-    tmux new-window -c $selected -n $selected_name -t $session_name:$next_index
-fi
-
-tmux switch-client -t $session_name:$selected_name
+tmux switch-client -t $session_name
