@@ -4,10 +4,6 @@ vim.keymap.set("n", "<C-s>", ":nohlsearch<CR>", { desc = 'Remove search highligh
 -- chmod +x to existing file
 vim.keymap.set("n", "<leader>fx", "<cmd>!chmod +x %<CR>", { silent = true, desc = 'Set current find chmod +x' })
 
--- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
 -- remove linebreak, and append the next line to the end of the current line
 vim.keymap.set("n", "J", "mzJ`z")
 
