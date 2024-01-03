@@ -1,0 +1,99 @@
+import = ["dracula.toml"]
+live_config_reload = true
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = false
+semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+
+[shell]
+args = ["-l", "-c", "tmux attach || tmux"]
+program = "/bin/zsh"
+
+[window]
+decorations = "none"
+dynamic_padding = true
+opacity = 0.95
+
+[cursor]
+vi_mode_style = { shape = "Block" }
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[font]
+size = 14
+
+[font.bold]
+family = "Hack Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "Hack Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "Hack Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "Hack Nerd Font"
+style = "Regular"
+
+[keyboard]
+bindings = [
+    # Navigate entire words
+    { chars = "\u001BB", key = "Left", mods = "Alt" },
+    { chars = "\u001BF", key = "Right", mods = "Alt" },
+    # TODO: don"t remember what this does figure it out
+    { chars = "\u001BOH", key = "Left", mode = "AppCursor", mods = "Command" },
+    { chars = "\u001BOF", key = "Right", mode = "AppCursor", mods = "Command" },
+    # Delete entire row
+    { chars = "\u0015", key = "Back", mods = "Command" },
+    # Delete entire word
+    { chars = "\u001B\u007F\u007F", key = "Back", mods = "Alt" },
+    # Rename the current tmux window
+    { chars = "\u0002,", key = "Comma", mods = "Command" },
+    # Select a new tmux session for the attached client interactively
+    { chars = "\u0002s", key = "P", mods = "Command" },
+    # Select window 1-9
+    { chars = "\u00021", key = "Key1", mods = "Command" },
+    { chars = "\u00022", key = "Key2", mods = "Command" },
+    { chars = "\u00023", key = "Key3", mods = "Command" },
+    { chars = "\u00024", key = "Key4", mods = "Command" },
+    { chars = "\u00025", key = "Key5", mods = "Command" },
+    { chars = "\u00026", key = "Key6", mods = "Command" },
+    { chars = "\u00027", key = "Key7", mods = "Command" },
+    { chars = "\u00028", key = "Key8", mods = "Command" },
+    { chars = "\u00029", key = "Key9", mods = "Command" },
+    # Switch to last tmux session
+    { chars = "\u0002L", key = "L", mods = "Command" },
+    { chars = "\u0002[", key = "LBracket", mods = "Command" },
+    { chars = "\u0002]", key = "RBracket", mods = "Command" },
+    # Change to the previous tmux window
+    { chars = "\u0002p", key = "LBracket", mods = "Command|Shift" },
+    # Change to the next tmux window
+    { chars = "\u0002n", key = "RBracket", mods = "Command|Shift" },
+    # Split the current pane into two, left and right
+    { chars = "\u0002_", key = "D", mods = "Command|Shift" },
+    # Split the current pane into two, top and bottom.
+    { chars = "\u0002|", key = "D", mods = "Command" },
+    # Create a new tmux window
+    { chars = "\u0002c", key = "T", mods = "Command" },
+    # Break the current tmux pane out of the tmux window
+    { chars = "\u0002!", key = "T", mods = "Command|Shift" },
+    # Kill the current tmux pane (and window if last pane)
+    { chars = "\u0004", key = "W", mods = "Command" },
+    # Toggle the zoom state of the current tmux pane
+    { chars = "\u0002z", key = "Z", mods = "Command" },
+    { chars = "\u001B[1;9D", key = "Right", mods = "Command|Shift" },
+    # Resize panes
+    { chars = "\u0002H", key = "H", mods = "Command|Shift" },
+    { chars = "\u0002J", key = "J", mods = "Command|Shift" },
+    { chars = "\u0002K", key = "K", mods = "Command|Shift" },
+    { chars = "\u0002L", key = "L", mods = "Command|Shift" },
+
+]
