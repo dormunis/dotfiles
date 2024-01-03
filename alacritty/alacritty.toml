@@ -1,4 +1,4 @@
-import = ["dracula.toml"]
+import = ["~/.config/alacritty/melange.toml"]
 live_config_reload = true
 
 [scrolling]
