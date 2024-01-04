@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/melange.toml"]
+import = ["~/.config/alacritty/gruvbox-material-medium.toml"]
 live_config_reload = true
 
 [scrolling]
