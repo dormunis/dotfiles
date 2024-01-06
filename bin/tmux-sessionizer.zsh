@@ -19,7 +19,7 @@ if [[ -z $selected ]]; then
     exit 0
 fi
 
-session_name=$(basename "$selected")
+session_name=$(basename "$selected" | sed 's/\./_/g')
 
 tmux_running=$(pgrep tmux)
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then

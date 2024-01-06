@@ -1,36 +1,42 @@
+local opts = { noremap = true, silent = true }
+local keymap = vim.keymap.set
+
 -- search operations
-vim.keymap.set("n", "<C-s>", ":nohlsearch<CR>", { desc = 'Remove search highlights' })
+keymap("n", "<C-s>", ":nohlsearch<CR>", { desc = 'Remove search highlights' }, opts)
 
 -- chmod +x to existing file
-vim.keymap.set("n", "<leader>fx", "<cmd>!chmod +x %<CR>", { silent = true, desc = 'Set current find chmod +x' })
+keymap("n", "<leader>fx", "<cmd>!chmod +x %<CR>", { silent = true, desc = 'Set current find chmod +x' }, opts)
 
 -- remove linebreak, and append the next line to the end of the current line
-vim.keymap.set("n", "J", "mzJ`z")
+keymap("n", "J", "mzJ`z", opts)
 
 -- keep cursor in the middle of the screen when jumping half-pages with C-u and C-d
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
 
 -- move selected line up and down and keep indentation
 -- TODO: im losing the J, K functionality, need to rethink it
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 
 -- keep cursor in the middle of the screen when jumping between search results
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
 
 -- paste without yanking
-vim.keymap.set("x", "<leader>p", "\"_dP")
+keymap("x", "p", "\"_dP", opts)
 
 -- disable Q
-vim.keymap.set("n", "Q", "<nop>")
+keymap("n", "Q", "<nop>", opts)
 
 -- new sessionizer
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+keymap("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", opts)
 
 -- copy selected text in visual mode to clip board
-vim.keymap.set("v", "<leader>y", [["+y]])
+keymap("v", "<leader>y", [["+y]], opts)
 
 -- copy entire file to clipboard
-vim.keymap.set("n", "<leader>y", ":%y+<CR>")
+keymap("n", "<leader>y", ":%y+<CR>", opts)
+
+-- source current file
+keymap("n", "<leader><leader>x", ":w<CR>:source %<CR>", opts)

@@ -3,10 +3,11 @@ return {
     event = "VeryLazy",
     dependencies = {
         'nvim-treesitter/nvim-treesitter',
+        'preservim/vimux'
     },
     config = function()
         local g = vim.g
-        g["test#strategy"] = "neovim"
+        g["test#strategy"] = "vimux"
         g["test#python#pytest#options"] = "-s --disable-warnings"
     end,
     keys = {
@@ -37,3 +38,4 @@ return {
         },
     }
 }
+

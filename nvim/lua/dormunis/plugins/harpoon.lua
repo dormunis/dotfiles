@@ -20,8 +20,9 @@ return {
             harpoon:list():append()
             vim.notify("Marked current file", vim.log.levels.INFO)
         end, { desc = "Mark current file" })
-        vim.keymap.set("n", "+", function() harpoon:list():prev() end,
-            { desc = "Navigate to previous marked file" })
-        vim.keymap.set("n", "=", function() harpoon:list():next() end, { desc = "Navigate to next marked file" })
+        vim.keymap.set("n", "+", function() harpoon:list():prev({ ui_nav_wrap = true }) end,
+            { desc = "Navigate to previous marked file", silent = true, noremap = true })
+        vim.keymap.set("n", "=", function() harpoon:list():next({ ui_nav_wrap = true }) end,
+            { desc = "Navigate to next marked file", silent = true, noremap = true })
     end,
 }
