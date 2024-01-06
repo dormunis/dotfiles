@@ -2,10 +2,12 @@ local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
 -- search operations
-keymap("n", "<C-s>", ":nohlsearch<CR>", { desc = 'Remove search highlights' }, opts)
+keymap("n", "<C-s>", ":nohlsearch<CR>",
+    { desc = 'Remove search highlights', noremap = true, silent = true })
 
 -- chmod +x to existing file
-keymap("n", "<leader>fx", "<cmd>!chmod +x %<CR>", { silent = true, desc = 'Set current find chmod +x' }, opts)
+keymap("n", "<leader>fx", "<cmd>!chmod +x %<CR>",
+    { desc = 'Set current find chmod +x', noremap = true, silent = true })
 
 -- remove linebreak, and append the next line to the end of the current line
 keymap("n", "J", "mzJ`z", opts)
