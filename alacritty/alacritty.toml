@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/gruvbox-material-medium.toml"]
+import = ["~/.config/alacritty/gruvbox-dark.toml"]
 live_config_reload = true
 
 [scrolling]
