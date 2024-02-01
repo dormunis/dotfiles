@@ -6,7 +6,6 @@ local on_attach = function(_, bufnr)
     nmap('<leader>r', vim.lsp.buf.rename, '[R]ename')
     nmap('<leader>f', function() vim.lsp.buf.format() end, '[F]ormat file')
     nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-    nmap('<C-h>', vim.lsp.buf.signature_help, 'Signature Help')
     nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
     nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
     nmap('gR', require('telescope.builtin').lsp_references, '[G]oto Telescope [R]eferences')
@@ -15,9 +14,8 @@ local on_attach = function(_, bufnr)
     nmap('<leader>cD', vim.lsp.buf.type_definition, '[C]ode Type [D]efinition')
     nmap('<leader>csd', require('telescope.builtin').lsp_document_symbols, '[C]ode [S]ymbols: [D]ocument')
     nmap('<leader>csw', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[C]ode [S]ymbols: [W]orkspace')
-
     nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-    nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+    nmap('H', vim.lsp.buf.signature_help, 'Signature Help')
 end
 
 local servers = {
@@ -102,7 +100,7 @@ cmp.setup {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         },
-        ['<C-n>'] = cmp.mapping(function(fallback)
+        ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
             elseif luasnip.expand_or_jumpable() then
@@ -111,7 +109,7 @@ cmp.setup {
                 fallback()
             end
         end, { 'i', 's' }),
-        ['<C-p>'] = cmp.mapping(function(fallback)
+        ['<C-Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
             elseif luasnip.jumpable(-1) then

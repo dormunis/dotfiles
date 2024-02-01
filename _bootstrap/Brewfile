@@ -20,6 +20,7 @@ brew "pnpm"
 brew "delve"
 brew "poetry"
 brew "pre-commit"
+brew "gh"
 cask "docker"
 
 # neovim

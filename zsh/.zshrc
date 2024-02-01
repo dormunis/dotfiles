@@ -1,4 +1,4 @@
-# general settings 
+# general settings
 export ZSH=$(readlink -f $HOME/.config/zsh)
 export HISTFILE=$ZSH/.zsh_history
 export HISTSIZE=10000
