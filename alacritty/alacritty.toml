@@ -55,7 +55,7 @@ bindings = [
     # Delete entire row
     { chars = "\u0015", key = "Back", mods = "Command" },
     # Delete entire word
-    { chars = "\u001B\u007F\u007F", key = "Back", mods = "Alt" },
+    { chars = "\u001B\u007F", key = "Back", mods = "Alt" },
     # Rename the current tmux window
     { chars = "\u0002,", key = "Comma", mods = "Command" },
     # Select a new tmux session for the attached client interactively
