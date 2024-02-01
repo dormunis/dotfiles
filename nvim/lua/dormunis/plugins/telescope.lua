@@ -11,6 +11,7 @@ return {
             }
         }
         local builtin = require('telescope.builtin')
+        local utils = require('telescope.utils')
 
         -- project navigation
         vim.keymap.set('n', '<Tab><Tab>', function()
@@ -21,7 +22,8 @@ return {
         vim.keymap.set('n', '<leader>gl', builtin.git_commits, { desc = 'Git log (telescope)' })
         vim.keymap.set('n', '<leader>gL', builtin.git_bcommits, { desc = 'Git log for current buffer (telescope)' })
         vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find currently running buffers' })
-        vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Find recently opened files' })
+        vim.keymap.set('n', '<leader>fr', function() builtin.oldfiles({ cwd = utils.buffer_dir() }) end,
+            { desc = 'Find recently opened files' })
         vim.keymap.set('n', '<leader>fc', builtin.current_buffer_fuzzy_find, { desc = 'Find in Current buffer' })
         vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Find Grep on all files from project root' })
         vim.keymap.set('n', '<leader>fw', function()
