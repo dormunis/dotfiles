@@ -3,17 +3,13 @@ return {
     main = "ibl",
     opts = {},
     config = function()
-        local highlight = {
-            "CursorColumn",
-            "Whitespace",
-        }
         require("ibl").setup {
-            indent = { highlight = highlight, char = "" },
-            whitespace = {
-                highlight = highlight,
-                remove_blankline_trail = false,
+            indent = { char = "┊" },
+            scope = {
+                enabled = true,
+                show_exact_scope = true,
+                highlight = { "Function", "Label" },
             },
-            scope = { enabled = false },
         }
     end
 }

@@ -1,13 +1,10 @@
 return {
-    "rose-pine/neovim",
-    name = "rose-pine",
+    "morhetz/gruvbox",
+    name = "gruvbox",
     config = function()
-        require('rose-pine').setup({
-            dim_inactive_windows = false,
-            styles = {
-                transparency = 0.8,
-            }
-        })
-        vim.cmd("colorscheme rose-pine")
+        vim.g.gruvbox_contrast_dark = "hard"
+        vim.g.gruvbox_transparent_bg = 1
+        vim.cmd("autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE")
+        vim.cmd.colorscheme("gruvbox")
     end
 }

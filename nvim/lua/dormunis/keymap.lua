@@ -42,3 +42,6 @@ keymap("n", "<leader>y", ":%y+<CR>", opts)
 
 -- source current file
 keymap("n", "<leader><leader>x", ":w<CR>:source %<CR>", opts)
+
+-- netrw
+keymap("n", "-", ":Explore<CR>", opts)

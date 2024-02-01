@@ -1,5 +1,4 @@
-# import = ["~/.config/alacritty/gruvbox-dark.toml"]
-import = ["~/.config/alacritty/rosepine.toml"]
+# import = ["~/.config/alacritty/rosepine.toml"]
 live_config_reload = true
 
 [scrolling]
