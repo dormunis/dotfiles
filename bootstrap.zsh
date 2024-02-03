@@ -53,8 +53,6 @@ ln -s "$dotfilesdir/nvim" ~/.config/nvim
 ln -s "$dotfilesdir/alacritty" ~/.config/alacritty
 ln -s "$dotfilesdir/yabai" ~/.config/yabai
 ln -s "$dotfilesdir/skhd" ~/.config/skhd
-mkdir -p ~/.config/karabiner
-ln -s "$dotfilesdir/karabiner/karabiner.json" ~/.config/karabiner/karabiner.json
 
 # setup python
 echo "installing python 3.11"
@@ -67,7 +65,7 @@ ln -s "$dotfilesdir/dap-virtualenvs" ~/.config/dap-virtualenvs
 
 # install bun
 echo "installing bun"
-curl -fsSL https://bun.sh/install | sh 
+curl -fsSL https://bun.sh/install | sh
 
 # install rust
 echo "installing rust latest version"
