@@ -5,7 +5,6 @@ return {
         "williamboman/mason-lspconfig.nvim",
         "folke/neodev.nvim",
         "nvimtools/none-ls.nvim",
-        "jay-babu/mason-null-ls.nvim",
         { "j-hui/fidget.nvim",       opts = {} },
     },
     config = function()
@@ -91,37 +90,29 @@ return {
         })
 
         local null_ls = require("null-ls")
-        null_ls.setup()
 
-        local get_python_virtual_env = function()
-            return os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX") or "/usr"
+        local prettier_root_files = { ".prettierrc", ".prettierrc.js", ".prettierrc.json" }
+        local stylua_root_files = { "stylua.toml", ".stylua.toml" }
+
+        local root_has_file = function(files)
+            return function(utils)
+                return utils.root_has_file(files)
+            end
         end
 
-        require("mason-null-ls").setup({
-            ensure_installed = {
-                -- python
-                "mypy",
-                "black",
-                -- lua
-                "stylua",
-                -- markdown
-                "prettier",
-                -- shell
-                "shellcheck",
-                "shfmt",
+        local opts = {
+            prettier_formatting = {
+                condition = root_has_file(prettier_root_files),
             },
-            automatic_installation = false,
-            handlers = {
-                -- Prevent the automatic setup of mason-null-ls and do
-                -- the setup manually in the null-ls block below.
-                mypy = function(_, _)
-                    null_ls.builtins.diagnostics.mypy.with({
-                        extra_args = function()
-                            local virtual = get_python_virtual_env()
-                            return { "--python-executable", virtual .. "/bin/python3" }
-                        end,
-                    })
-                end,
+            stylua_formatting = {
+                condition = root_has_file(stylua_root_files),
+            },
+        }
+
+        null_ls.setup({
+            sources = {
+                null_ls.builtins.formatting.prettier.with(opts.prettier_formatting),
+                null_ls.builtins.formatting.stylua.with(opts.stylua_formatting),
             },
         })
 

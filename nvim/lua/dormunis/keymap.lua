@@ -1,6 +1,10 @@
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
+-- go over wrapped lines
+keymap("n", "j", "gj", opts)
+keymap("n", "k", "gk", opts)
+
 -- search operations
 keymap("n", "<C-s>", ":nohlsearch<CR>", { desc = "Remove search highlights", noremap = true, silent = true })
 
