@@ -17,14 +17,27 @@ return {
             return result
         end
 
-        vim.keymap.set("n", "<leader>xx", function() trouble.toggle({ mode = "document_diagnostics" }) end,
-            opts({ desc = "Toggle trouble" }))
-        vim.keymap.set("n", "<leader>xw", function() trouble.toggle({ mode = "workspace_diagnostics" }) end,
-            opts({ desc = "Toggle trouble" }))
-        vim.keymap.set("n", "]x", function() trouble.next({ skip_groups = true, jump = true }) end,
-            opts({ desc = "Next diagnostic" }))
-        vim.keymap.set("n", "[x", function() trouble.previous({ skip_groups = true, jump = true }) end,
-            opts({ desc = "Previous diagnostic" }))
-        vim.keymap.set('n', 'X', vim.diagnostic.open_float, opts({ desc = "Open diagnostics for current line" }))
-    end
+        vim.keymap.set("n", "<leader>xx", function()
+            trouble.toggle({ mode = "document_diagnostics" })
+        end, opts({ desc = "Toggle trouble" }))
+        vim.keymap.set("n", "<leader>xw", function()
+            trouble.toggle({ mode = "workspace_diagnostics" })
+        end, opts({ desc = "Toggle trouble" }))
+        vim.keymap.set("n", "]x", function()
+            trouble.next({ skip_groups = true, jump = true })
+        end, opts({ desc = "Next diagnostic" }))
+        vim.keymap.set("n", "[x", function()
+            trouble.previous({ skip_groups = true, jump = true })
+        end, opts({ desc = "Previous diagnostic" }))
+        vim.keymap.set("n", "X", vim.diagnostic.open_float, opts({ desc = "Open diagnostics for current line" }))
+
+        vim.diagnostic.config({
+            title = false,
+            underline = true,
+            virtual_text = true,
+            signs = true,
+            update_in_insert = false,
+            severity_sort = true,
+        })
+    end,
 }

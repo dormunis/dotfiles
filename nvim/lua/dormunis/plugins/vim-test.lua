@@ -2,13 +2,14 @@ return {
     "vim-test/vim-test",
     event = "VeryLazy",
     dependencies = {
-        'nvim-treesitter/nvim-treesitter',
-        'preservim/vimux'
+        "nvim-treesitter/nvim-treesitter",
+        "preservim/vimux",
     },
     config = function()
         local g = vim.g
         g["test#strategy"] = "vimux"
         g["test#python#pytest#options"] = "-s --disable-warnings"
+        g["test#javascript#jest#executable"] = "npm test"
     end,
     keys = {
         {
@@ -36,6 +37,5 @@ return {
             ":TestVisit<CR>",
             desc = "Jump to last test",
         },
-    }
+    },
 }
-

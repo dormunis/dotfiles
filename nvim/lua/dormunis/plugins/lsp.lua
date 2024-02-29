@@ -1,11 +1,12 @@
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
-        "williamboman/mason.nvim",
+        { "williamboman/mason.nvim", config = true },
         "williamboman/mason-lspconfig.nvim",
         "folke/neodev.nvim",
         "nvimtools/none-ls.nvim",
         "jay-babu/mason-null-ls.nvim",
+        { "j-hui/fidget.nvim",       opts = {} },
     },
     config = function()
         local on_attach = function(_, bufnr)
@@ -16,7 +17,14 @@ return {
             nmap("gD", vim.lsp.buf.declaration, "Go to declaration")
             nmap("gd", vim.lsp.buf.definition, "Go to definition")
             nmap("gR", require("telescope.builtin").lsp_references, "Get references in a telescope list")
-            nmap("gr", vim.lsp.buf.references, "Get references in a quickfix list")
+            nmap("gr", function()
+                vim.lsp.buf.references(nil, {
+                    on_list = function(options)
+                        vim.fn.setqflist({}, " ", options)
+                        vim.api.nvim_command("cfirst")
+                    end,
+                })
+            end, "Get references in a quickfix list")
             nmap("gI", vim.lsp.buf.implementation, "Go to implementation")
             nmap("gt", vim.lsp.buf.type_definition, "Go to type definition")
             nmap("K", vim.lsp.buf.hover, "Hover Documentation")
@@ -71,9 +79,18 @@ return {
         capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
         capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-        require("mason").setup()
+        require("mason").setup({
+            ui = {
+                border = "rounded",
+                icons = {
+                    package_installed = "",
+                    package_pending = "",
+                    package_uninstalled = "",
+                },
+            },
+        })
 
-        null_ls = require("null-ls")
+        local null_ls = require("null-ls")
         null_ls.setup()
 
         local get_python_virtual_env = function()
@@ -94,18 +111,18 @@ return {
                 "shfmt",
             },
             automatic_installation = false,
-            handlers = {
-                -- Prevent the automatic setup of mason-null-ls and do
-                -- the setup manually in the null-ls block below.
-                mypy = function(source_name, methods)
-                    null_ls.builtins.diagnostics.mypy.with({
-                        extra_args = function()
-                            local virtual = get_python_virtual_env()
-                            return { "--python-executable", virtual .. "/bin/python3" }
-                        end,
-                    })
-                end,
-            },
+            -- handlers = {
+            --     -- Prevent the automatic setup of mason-null-ls and do
+            --     -- the setup manually in the null-ls block below.
+            --     mypy = function(_, _)
+            --         null_ls.builtins.diagnostics.mypy.with({
+            --             extra_args = function()
+            --                 local virtual = get_python_virtual_env()
+            --                 return { "--python-executable", virtual .. "/bin/python3" }
+            --             end,
+            --         })
+            --     end,
+            -- },
         })
 
         local mason_lspconfig = require("mason-lspconfig")

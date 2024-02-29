@@ -2,12 +2,10 @@ local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
 -- search operations
-keymap("n", "<C-s>", ":nohlsearch<CR>",
-    { desc = 'Remove search highlights', noremap = true, silent = true })
+keymap("n", "<C-s>", ":nohlsearch<CR>", { desc = "Remove search highlights", noremap = true, silent = true })
 
 -- chmod +x to existing file
-keymap("n", "<leader>fx", "<cmd>!chmod +x %<CR>",
-    { desc = 'Set current find chmod +x', noremap = true, silent = true })
+keymap("n", "<leader>fx", "<cmd>!chmod +x %<CR>", { desc = "Set current find chmod +x", noremap = true, silent = true })
 
 -- remove linebreak, and append the next line to the end of the current line
 keymap("n", "J", "mzJ`z", opts)
@@ -26,10 +24,21 @@ keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 
 -- paste without yanking
-keymap("x", "p", "\"_dP", opts)
+keymap("x", "p", '"_dP', opts)
 
 -- disable Q
 keymap("n", "Q", "<nop>", opts)
+
+-- quickfix actions
+keymap("n", "<leader>q", function() -- toggle quickfix
+    if vim.bo.filetype == "qf" or vim.fn.empty(vim.fn.getqflist()) == 0 then
+        vim.cmd("cclose")
+    else
+        vim.cmd("copen")
+    end
+end, opts)
+keymap("n", "]q", ":cnext<CR>", opts) -- next quickfix
+keymap("n", "[q", ":cprev<CR>", opts) -- previous quickfix
 
 -- new sessionizer
 keymap("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", opts)
