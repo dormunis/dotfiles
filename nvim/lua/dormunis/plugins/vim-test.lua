@@ -30,7 +30,7 @@ return {
         {
             "<leader>ts",
             ":TestSuite<CR>",
-            desc = "Run test file",
+            desc = "Run test suite",
         },
         {
             "<leader>tv",

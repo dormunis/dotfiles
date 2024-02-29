@@ -31,7 +31,7 @@ keymap("n", "Q", "<nop>", opts)
 
 -- quickfix actions
 keymap("n", "<leader>q", function() -- toggle quickfix
-    if vim.bo.filetype == "qf" or vim.fn.empty(vim.fn.getqflist()) == 0 then
+    if vim.bo.filetype == "qf" then
         vim.cmd("cclose")
     else
         vim.cmd("copen")
@@ -51,6 +51,3 @@ keymap("n", "<leader>y", ":%y+<CR>", opts)
 
 -- source current file
 keymap("n", "<leader><leader>x", ":w<CR>:source %<CR>", opts)
-
--- netrw
-keymap("n", "-", ":Explore<CR>", opts)

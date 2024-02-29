@@ -111,18 +111,18 @@ return {
                 "shfmt",
             },
             automatic_installation = false,
-            -- handlers = {
-            --     -- Prevent the automatic setup of mason-null-ls and do
-            --     -- the setup manually in the null-ls block below.
-            --     mypy = function(_, _)
-            --         null_ls.builtins.diagnostics.mypy.with({
-            --             extra_args = function()
-            --                 local virtual = get_python_virtual_env()
-            --                 return { "--python-executable", virtual .. "/bin/python3" }
-            --             end,
-            --         })
-            --     end,
-            -- },
+            handlers = {
+                -- Prevent the automatic setup of mason-null-ls and do
+                -- the setup manually in the null-ls block below.
+                mypy = function(_, _)
+                    null_ls.builtins.diagnostics.mypy.with({
+                        extra_args = function()
+                            local virtual = get_python_virtual_env()
+                            return { "--python-executable", virtual .. "/bin/python3" }
+                        end,
+                    })
+                end,
+            },
         })
 
         local mason_lspconfig = require("mason-lspconfig")
