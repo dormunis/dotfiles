@@ -1,3 +1,9 @@
+# use this for profiling in case the shell becomes slow
+export PROFILING_MODE=0
+if [ $PROFILING_MODE -ne 0 ]; then
+    zmodload zsh/zprof
+fi
+
 # general settings
 export ZSH=$(readlink -f $HOME/.config/zsh)
 export HISTFILE=$ZSH/.zsh_history
@@ -17,14 +23,9 @@ zstyle ':completion:*:*:git:*' script $ZSH/plugins/git-completions/git-completio
 fpath=($ZSH/plugins/zsh-completions/src $ZSH/plugins/git-completions $fpath)
 autoload -Uz compinit && compinit
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
 # golang
 export PATH=$PATH:$(go env GOPATH)/bin
-#
+
 # pnpm
 export PNPM_HOME="/Users/dormunis/Library/pnpm"
 case ":$PATH:" in
@@ -38,16 +39,33 @@ esac
 # aliases
 source $ZSH/aliases/customized.plugin.zsh
 source $ZSH/aliases/kubectl.plugin.zsh
+export KUBE_EDITOR=nvim
 bindkey -s '^f' "tmux-sessionizer\n"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/dormunis/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dormunis/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/dormunis/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dormunis/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
+# nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+
+nvm_lazy_cmd=(nvm node npm npx pnpm yarn $nvm_lazy_cmd)
+eval "
+function $nvm_lazy_cmd {
+    for func in $nvm_lazy_cmd; do
+    if (( \$+functions[\$func] )); then
+        unfunction \$func
+    fi
+    done
+    # Load nvm if it exists in \$NVM_DIR
+    [[ -f \"\$NVM_DIR/nvm.sh\" ]] && source \"\$NVM_DIR/nvm.sh\"
+    \"\$0\" \"\$@\"
+}
+"
+unset nvm_lazy_cmd
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-KUBE_EDITOR=nvim
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+if [ $PROFILING_MODE -ne 0 ]; then
+    zprof
+fi
