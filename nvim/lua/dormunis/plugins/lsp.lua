@@ -13,6 +13,7 @@ return {
                 vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
             end
 
+            nmap("<leader>r", vim.lsp.buf.rename, "Rename")
             nmap("gD", vim.lsp.buf.declaration, "Go to declaration")
             nmap("gd", vim.lsp.buf.definition, "Go to definition")
             nmap("gR", require("telescope.builtin").lsp_references, "Get references in a telescope list")

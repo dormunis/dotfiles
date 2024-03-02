@@ -11,13 +11,6 @@ return {
         ---@diagnostic disable-next-line: missing-fields
         require('nvim-treesitter.configs').setup {
             refactor = {
-                -- highlight_current_scope = { enable = true },
-                smart_rename = {
-                    enable = true,
-                    keymaps = {
-                        smart_rename = "<leader>r",
-                    },
-                },
                 highlight_definitions = {
                     enable = true,
                     clear_on_cursor_move = true,
