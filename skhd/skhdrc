@@ -1,6 +1,3 @@
-# show dekstop
-alt + ctrl + cmd - d : yabai -m space --toggle show-desktop
-
 # focus mode
 alt + ctrl + cmd - return : yabai -m window --toggle zoom-fullscreen
 alt + ctrl + cmd - f : zsh ~/.config/skhd/focus.zsh
@@ -8,35 +5,22 @@ alt + ctrl + cmd - f : zsh ~/.config/skhd/focus.zsh
 # balance space
 alt + ctrl + cmd - b : yabai -m space --balance
 
-# toggle float
-alt + ctrl +cmd - 0x2A : yabai -m window --toggle float # 0x2A == slash \
-
 # resize windows
+# 0x18 == equal sign =
 alt + ctrl + cmd - 0x18 :   yabai -m window --resize top_left:-100:-100; \
                             yabai -m window --resize bottom_right:100:100
-# 0x18 == equal sign =
+# 0x1B == minus sign -
 alt + ctrl + cmd - 0x1B :   yabai -m window --resize top_left:100:100; \
                             yabai -m window --resize bottom_right:-100:-100
-# 0x1B == minus sign -
 
 # move windows
-alt + ctrl + cmd - 0x21     : zsh ~/.config/skhd/move_window.zsh prev # 0x21 == left bracket [
-alt + ctrl + cmd - 0x1E     : zsh ~/.config/skhd/move_window.zsh next # 0x1E == right bracket ]
 alt + ctrl + cmd - left     : zsh ~/.config/skhd/move_window.zsh left
 alt + ctrl + cmd - right    : zsh ~/.config/skhd/move_window.zsh right
 alt + ctrl + cmd - up       : zsh ~/.config/skhd/move_window.zsh up
 alt + ctrl + cmd - down     : zsh ~/.config/skhd/move_window.zsh down
-alt + ctrl + cmd - 1        : zsh ~/.config/skhd/move_window.zsh 1
-alt + ctrl + cmd - 2        : zsh ~/.config/skhd/move_window.zsh 2
-alt + ctrl + cmd - 3        : zsh ~/.config/skhd/move_window.zsh 3
-alt + ctrl + cmd - 4        : zsh ~/.config/skhd/move_window.zsh 4
-alt + ctrl + cmd - 5        : zsh ~/.config/skhd/move_window.zsh 5
-alt + ctrl + cmd - 6        : zsh ~/.config/skhd/move_window.zsh 6
-alt + ctrl + cmd - 7        : zsh ~/.config/skhd/move_window.zsh 7
-alt + ctrl + cmd - c        : zsh ~/.config/skhd/center_window.zsh
 
 # focus windows
 alt + ctrl + cmd - l        : yabai -m window --focus east
-alt + ctrl + cmd - h        : yabai -m window --focus west 
+alt + ctrl + cmd - h        : yabai -m window --focus west
 alt + ctrl + cmd - k        : yabai -m window --focus north
-alt + ctrl + cmd - j        : yabai -m window --focus south 
+alt + ctrl + cmd - j        : yabai -m window --focus south
