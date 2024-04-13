@@ -1,5 +1,5 @@
 # focus mode
-alt + ctrl + cmd - return : yabai -m window --toggle zoom-fullscreen
+alt + ctrl + cmd - return : [[ $(yabai -m config layout) == "bsp" ]] && yabai -m config layout stack || yabai -m config layout bsp
 alt + ctrl + cmd - f : zsh ~/.config/skhd/focus.zsh
 
 # balance space
@@ -12,7 +12,6 @@ alt + ctrl + cmd - 0x18 :   yabai -m window --resize top_left:-100:-100; \
 # 0x1B == minus sign -
 alt + ctrl + cmd - 0x1B :   yabai -m window --resize top_left:100:100; \
                             yabai -m window --resize bottom_right:-100:-100
-
 # move windows
 alt + ctrl + cmd - left     : zsh ~/.config/skhd/move_window.zsh left
 alt + ctrl + cmd - right    : zsh ~/.config/skhd/move_window.zsh right
@@ -24,3 +23,14 @@ alt + ctrl + cmd - l        : yabai -m window --focus east
 alt + ctrl + cmd - h        : yabai -m window --focus west
 alt + ctrl + cmd - k        : yabai -m window --focus north
 alt + ctrl + cmd - j        : yabai -m window --focus south
+alt + ctrl + cmd - n        : yabai -m window --focus stack.next || yabai -m window --focus next || yabai -m window --focus stack.first
+alt + ctrl + cmd - p        : yabai -m window --focus stack.prev || yabai -m window --focus prev || yabai -m window --focus stack.last
+
+# app shortcuts
+alt + ctrl + cmd - u : open -a "Arc"
+alt + ctrl + cmd - o : open -a "Obsidian"
+alt + ctrl + cmd - t : open -a "Todoist"
+alt + ctrl + cmd - e : open -a "Alacritty"
+alt + ctrl + cmd - d : open -a "Arc" "https://drive.google.com/drive/u/0/folders/1v7hXn9dUToqzj5Bbd6EeR5ovWvEihZEM" # Ideation drive
+alt + ctrl + cmd - y : open -a "Arc" "https://youtube.com"
+

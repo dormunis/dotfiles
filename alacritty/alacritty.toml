@@ -45,6 +45,11 @@ style = "Regular"
 
 [keyboard]
 bindings = [
+    # Navigate text using vim keybindings
+    { chars = "\u001b[A", key = "K", mods = "Alt" },
+    { chars = "\u001b[B", key = "J", mods = "Alt" },
+    { chars = "\u001b[D", key = "H", mods = "Alt" },
+    { chars = "\u001b[C", key = "L", mods = "Alt" },
     # Navigate entire words
     { chars = "\u001BB", key = "Left", mods = "Alt" },
     { chars = "\u001BF", key = "Right", mods = "Alt" },
