@@ -30,7 +30,7 @@ alt + ctrl + cmd - p        : yabai -m window --focus stack.prev || yabai -m win
 alt + ctrl + cmd - u : open -a "Arc"
 alt + ctrl + cmd - o : open -a "Obsidian"
 alt + ctrl + cmd - t : open -a "Todoist"
-alt + ctrl + cmd - e : open -a "Alacritty"
+alt + ctrl + cmd - i : open -a "Alacritty"
 alt + ctrl + cmd - d : open -a "Arc" "https://drive.google.com/drive/u/0/folders/1v7hXn9dUToqzj5Bbd6EeR5ovWvEihZEM" # Ideation drive
 alt + ctrl + cmd - y : open -a "Arc" "https://youtube.com"
 
