@@ -23,8 +23,8 @@ alt + ctrl + cmd - l        : yabai -m window --focus east
 alt + ctrl + cmd - h        : yabai -m window --focus west
 alt + ctrl + cmd - k        : yabai -m window --focus north
 alt + ctrl + cmd - j        : yabai -m window --focus south
-alt + ctrl + cmd - n        : yabai -m window --focus stack.next || yabai -m window --focus next || yabai -m window --focus stack.first
-alt + ctrl + cmd - p        : yabai -m window --focus stack.prev || yabai -m window --focus prev || yabai -m window --focus stack.last
+alt + ctrl + cmd - n        : yabai -m window --focus stack.next || yabai -m window --focus next || yabai -m window --focus stack.first || yabai -m window --focus first
+alt + ctrl + cmd - p        : yabai -m window --focus stack.prev || yabai -m window --focus prev || yabai -m window --focus stack.last || yabai -m window --focus last
 
 # app shortcuts
 alt + ctrl + cmd - u : open -a "Arc"

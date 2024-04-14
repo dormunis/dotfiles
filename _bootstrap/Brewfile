@@ -3,6 +3,8 @@ tap "homebrew/cask-fonts"
 tap "homebrew/services"
 tap "koekeishiya/formulae"
 tap "weaveworks/tap"
+tap "FelixKratz/formulae"
+
 
 # dev & cloud
 brew "awscli"
@@ -41,6 +43,7 @@ brew "sd"
 brew "dust"
 brew "koekeishiya/formulae/skhd"
 brew "koekeishiya/formulae/yabai"
+brew "FelixKratz/formulae/borders"
 cask "alfred"
 cask "clipy"
 cask "obsidian"
