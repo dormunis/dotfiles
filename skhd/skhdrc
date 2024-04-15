@@ -7,11 +7,9 @@ alt + ctrl + cmd - b : yabai -m space --balance
 
 # resize windows
 # 0x18 == equal sign =
-alt + ctrl + cmd - 0x18 :   yabai -m window --resize top_left:-100:-100; \
-                            yabai -m window --resize bottom_right:100:100
+alt + ctrl + cmd - 0x18 :   yabai -m window --resize top_left:-100:-100 || yabai -m window --resize bottom_right:100:100
 # 0x1B == minus sign -
-alt + ctrl + cmd - 0x1B :   yabai -m window --resize top_left:100:100; \
-                            yabai -m window --resize bottom_right:-100:-100
+alt + ctrl + cmd - 0x1B :   yabai -m window --resize top_left:100:100 || yabai -m window --resize bottom_right:-100:-100
 # move windows
 alt + ctrl + cmd - left     : zsh ~/.config/skhd/move_window.zsh left
 alt + ctrl + cmd - right    : zsh ~/.config/skhd/move_window.zsh right
