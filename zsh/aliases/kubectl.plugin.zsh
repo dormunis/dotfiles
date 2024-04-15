@@ -1,3 +1,5 @@
+# taken from https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/kubectl/kubectl.plugin.zsh
+
 if (( ! $+commands[kubectl] )); then
   return
 fi

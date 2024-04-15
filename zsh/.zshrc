@@ -39,6 +39,7 @@ esac
 # aliases
 source $ZSH/aliases/customized.plugin.zsh
 source $ZSH/aliases/kubectl.plugin.zsh
+source $ZSH/aliases/git.plugin.zsh
 export KUBE_EDITOR=nvim
 bindkey -s '^f' "tmux-sessionizer\n"
 
