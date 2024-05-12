@@ -42,7 +42,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "88"
+vim.opt.colorcolumn = "100"
 
 -- disable startup screen
 vim.opt.shortmess:append({ I = true })
