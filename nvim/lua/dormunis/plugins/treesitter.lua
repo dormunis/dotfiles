@@ -42,7 +42,8 @@ return {
                 "sql",
                 "bash",
                 "yaml",
-                "markdown_inline"
+                "markdown_inline",
+                "zig",
             },
             sync_install = false,
             auto_install = true,
@@ -55,7 +56,10 @@ return {
                     node_decremental = '<S-TAB>',
                     scope_incremental = '<CR>',
                 },
-            }, highlight = { enable = true },
+            },
+            highlight = {
+                enable = true
+            },
             textobjects = {
                 select = {
                     enable = true,
