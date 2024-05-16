@@ -45,7 +45,7 @@ return {
 
         -- -- language keybindings
         nmap('<leader>dsl', function()
-            local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
+            local filetype = vim.api.nvim_get_option_value('filetype', { buf = 0 })
             if filetype == 'python' then
                 python.debug_selection()
             end
@@ -53,7 +53,7 @@ return {
         )
 
         nmap('<leader>dt', function()
-            local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
+            local filetype = vim.api.nvim_get_option_value('filetype', { buf = 0 })
             if filetype == 'python' then
                 python.test_method()
             elseif filetype == 'go' then
@@ -63,7 +63,7 @@ return {
         )
 
         nmap('<leader>dc', function()
-            local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
+            local filetype = vim.api.nvim_get_option_value('filetype', { buf = 0 })
             if filetype == 'python' then
                 python.test_class()
             end

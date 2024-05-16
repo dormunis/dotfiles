@@ -1,11 +1,5 @@
 return {
     {
-        'numToStr/Comment.nvim',
-        config = function()
-            require('Comment').setup()
-        end,
-    },
-    {
         "kylechui/nvim-surround",
         version = "*",
         event = "VeryLazy",
