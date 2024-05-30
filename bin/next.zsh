@@ -10,5 +10,5 @@ TASKS=$(curl -XGET -s https://api.todoist.com/rest/v2/tasks?filter=%28%40next%20
 TOTAL=`echo $TASKS | jq length`
 
 echo "total $TOTAL"
-echo $TASKS | jq -r 'sort_by(.priority) | .[] | "\(.id)  p\(.priority)\(if .due.is_recurring then "r" else "t" end)\t\(.created_at | sub("\\.[0-9]+Z$"; "Z") | fromdate | strftime("%b %d %H:%M"))  \(.content)"'
+echo $TASKS | jq -r 'sort_by(.priority) | .[] | "\(.id) todoist p\(.priority)\(if .due.is_recurring then "r" else "t" end)\t\(.created_at | sub("\\.[0-9]+Z$"; "Z") | fromdate | strftime("%b %d %H:%M"))  \(.content)"'
 
